@@ -1,19 +1,19 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {BrowserRouter, Link, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Link} from 'react-router-dom'
 import {StepRouter} from '../index'
-import {selectStep, incrementStep, decrementStep, setStep} from '../steps/stepSlice'
+import {selectStep, increment, decrement, setStep} from '../steps/stepSlice'
 import {stepFix} from '../../helpers/step-helper'
 
 export const NavBar: React.FC = () => {
   const dispatch = useDispatch()
   const currentStep = useSelector(selectStep)
 
-  const increment = () => {
-    dispatch(incrementStep())
+  const incrementStep = () => {
+    dispatch(increment())
   }
-  const decrement = () => {
-    dispatch(decrementStep())
+  const decrementStep = () => {
+    dispatch(decrement())
   }
 
   const changeStep = (change:number):any => {
@@ -30,8 +30,8 @@ export const NavBar: React.FC = () => {
   
    return (
      <div>
-      <button onClick={decrement}>-</button>
-      <button onClick={increment}>+</button>
+      <button onClick={decrementStep}>-</button>
+      <button onClick={incrementStep}>+</button>
       <p>{currentStep}</p>
       <BrowserRouter>
           <Link to={`/step${newStep(-1)}`} onClick={changeStep(-1)}>back </Link>
