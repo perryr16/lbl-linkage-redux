@@ -1,0 +1,114 @@
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Custom */
+
+
+.address {
+  background-color: rgb(9,37,50);
+  color: white;
+  text-align: left;
+  border-bottom: 1px solid rgb(98, 111, 116);
+}
+.bold {
+  font-weight: bold;
+}
+.nav-bar {
+  border: 1px solid red;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 65vw;
+  height: 20vh;
+}
+.nav-btn {
+  float: right;
+  border-radius: 25px;
+  padding: 10px;
+  padding: 10px 20px 10px 20px;
+  margin: 10px 10px 0 0;
+  text-decoration: none;
+}
+.nav-next {
+  border: 1px solid rgb(47,158,193);
+  background-color: rgb(47,158,193);
+  color: white;
+}
+.nav-next:hover {
+  background-color: white;
+  color:rgb(47,158,193);
+  border: 1px solid rgb(47,158,193);
+  text-decoration: none;
+}
+.nav-back {
+  border: 1px solid white;
+  background-color: white;
+  color: rgb(47,158,193);
+}
+.nav-back:hover {
+  border: 1px solid rgb(47,158,193);
+  background-color: rgb(47,158,193);
+  color: white;
+  text-decoration: none;
+}
+.proj-details-a {
+  background-color: white;
+  padding: 0 30px 0 30px;
+}
+.proj-details {
+  margin: 0 30px 0 30px;
+  border-top: 1px solid rgb(194, 194, 194);
+}
+.sidebar {
+  border: 1px solid blue;
+  position: absolute;
+  top: 0px;
+  bottom: 200px;
+  left: 0px;
+  width: 35vw;
+  height: 95vh;
+  background-color:rgb(249,249,249);
+  overflow: scroll;
+}
+.sidebar div {
+  text-align: left;
+  padding: 30px;
+}
+.step-card {
+  position: absolute;
+  top: 20vh;
+  border: 1px solid green;
+  width: 100%;
+  height: 75vh;
+  left: 0px;
+  overflow: scroll;
+}
+.txt-10 {
+  font-size: 10px;
+}
+.txt-15 {
+  font-size: 15px;
+}
+.txt-20 {
+  font-size: 20px;
+}
+.txt-30 {
+  font-size: 30px
+}
+.txt-40 {
+  font-size: 40px
+}

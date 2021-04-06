@@ -8,7 +8,31 @@ export const Step1Card: React.FC<Props> = () => {
 
 
    return (
-      <div>
+      <div className='step-card'>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
+         <h1>STEP 1</h1>
          <h1>STEP 1</h1>
       </div>
    );

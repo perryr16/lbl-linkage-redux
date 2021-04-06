@@ -29,14 +29,6 @@ const stepSlice = createSlice({
    }
 })
 
-interface StepRef {
-   1: string,
-   2: string,
-   3: string,
-   4: string,
-   5: string,
-   6: string,
-}
 const stepRef:any = {
    1: 'Project Specifications',
    2: 'System Selections',

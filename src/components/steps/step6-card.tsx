@@ -6,7 +6,21 @@ interface Props {
 
 export const Step6Card: React.FC<Props> = () => {
    return (
-      <div>
+      <div className='step-card'>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
+         <h1>STEP 6</h1>
          <h1>STEP 6</h1>
 
       </div>
