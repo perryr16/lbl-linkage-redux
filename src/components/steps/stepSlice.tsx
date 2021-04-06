@@ -4,17 +4,25 @@ const initialState:number = 1;
 export const stepReducer = (step:number = initialState, action:any) => {
    switch (action.type) {
       case 'step/increment':
-         return action.payload
+         return step + 1;
       case 'step/decrement':
-         return action.payload
+         return step - 1;
       default:
          return step
    }
 }
 
+// Selectors
 export const selectStep = (state:any):number => state.step;
 
 
+// Actions
+export const incrementStep = () => {
+   return {type: 'step/increment', payload: null}
+}
+export const decrementStep = () => {
+   return {type: 'step/decrement', payload: null}
+}
 
 // const options = {
 //    name: 'step',
