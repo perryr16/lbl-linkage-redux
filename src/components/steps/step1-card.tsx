@@ -14,12 +14,6 @@ export const Step1Card: React.FC<Props> = () => {
    return (
       <div>
          <h1>STEP 1</h1>
-         <BrowserRouter>
-            <Link to='/step2'>Step 2</Link>
-            <Switch>
-               <Route exact path='/step2' component={Step2Card}/>
-            </Switch>
-         </BrowserRouter>
       </div>
    );
 }

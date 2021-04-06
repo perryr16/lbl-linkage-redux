@@ -3,6 +3,10 @@ import {NavBtn} from './nav/nav-btn'
 import {Step1Card} from './steps/step1-card'
 import {Step2Card} from './steps/step2-card'
 import {Step3Card} from './steps/step3-card'
+import {Step4Card} from './steps/step4-card'
+import {Step5Card} from './steps/step5-card'
+import {Step6Card} from './steps/step6-card'
+import {StepRouter} from './router/step-router'
 
 export {
    NavBar,
@@ -10,4 +14,8 @@ export {
    Step1Card,
    Step2Card,
    Step3Card,
+   Step4Card,
+   Step5Card,
+   Step6Card,
+   StepRouter,
 }

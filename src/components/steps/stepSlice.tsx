@@ -4,9 +4,11 @@ const initialState:number = 1;
 export const stepReducer = (step:number = initialState, action:any) => {
    switch (action.type) {
       case 'step/increment':
-         return step + 1;
+         return step >= 6 ? 1 : step + 1
       case 'step/decrement':
-         return step - 1;
+         return step <= 1 ? 6 : step -1
+      case 'step/setStep':
+         return action.payload
       default:
          return step
    }
@@ -22,6 +24,9 @@ export const incrementStep = () => {
 }
 export const decrementStep = () => {
    return {type: 'step/decrement', payload: null}
+}
+export const setStep = (step:number) => {
+   return {type: 'step/setStep', payload: step}
 }
 
 // const options = {

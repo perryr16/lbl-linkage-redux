@@ -1,9 +1,9 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {BrowserRouter, Link, Switch, Route} from 'react-router-dom'
-import {Step1Card, Step2Card, Step3Card} from '../index'
+import {Step1Card, Step2Card, Step3Card, StepRouter} from '../index'
 import {store} from '../../store/store';
-import {selectStep, incrementStep, decrementStep} from '../steps/stepSlice'
+import {selectStep, incrementStep, decrementStep, setStep} from '../steps/stepSlice'
 
 
 interface Props {
@@ -11,58 +11,47 @@ interface Props {
 }
 
 export const NavBar: React.FC<Props> = (props) => {
-  const state = props
   const dispatch = useDispatch()
+  const currentStep = useSelector(selectStep)
 
-  const stopHere = () => {
-    let x = 1;
-  }
   const increment = () => {
     dispatch(incrementStep())
   }
   const decrement = () => {
     dispatch(decrementStep())
   }
-  const currentStep = useSelector(selectStep)
-  
-  // const currentStep:any = useSelector<any>(state => state.step)
 
+  const changeStep = (change:number):any => {
+    let newStep = stepFix(currentStep + change)
+    return () => {
+      return dispatch(setStep(newStep))
+    }
+  }
+
+  const stepFix = (step:number) => {
+    if (step < 1) {
+      return 6
+    } else if (step > 6) {
+      return 1
+    } else {
+      return step
+    }
+  }
+
+  const newStep = (change:number) => {
+    return stepFix(currentStep + change)
+  }
+
+  
    return (
      <div>
-      {stopHere()}
-      <button onClick={increment}>+</button>
       <button onClick={decrement}>-</button>
+      <button onClick={increment}>+</button>
       <p>{currentStep}</p>
       <BrowserRouter>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/step1">Step 1</Link>
-              </li>
-              <li>
-                <Link to="/step2">Step 2</Link>
-              </li>
-              <li>
-                <Link to="/step3">Step 3</Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-          <Switch>
-            <Route exact path="/step1">
-              <Step1Card />
-            </Route>
-            <Route exact path="/step2">
-              <Step2Card />
-            </Route>
-            <Route exact path="/step3">
-              <Step3Card />
-            </Route>
-          </Switch>
-        </div>
+          <Link to={`/step${newStep(-1)}`} onClick={changeStep(-1)}>back </Link>
+          <Link to={`/step${newStep(1)}`} onClick={changeStep(+1)}>next</Link>
+          <StepRouter />
       </BrowserRouter>
      </div>
    );
