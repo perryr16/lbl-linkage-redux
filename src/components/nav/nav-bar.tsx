@@ -17,14 +17,14 @@ export const NavBar: React.FC = () => {
   }
 
   const changeStep = (change:number):any => {
-    let newStep = stepFix(currentStep + change)
+    let newStep = stepFix(currentStep.step + change)
     return () => {
       return dispatch<any>(setStep(newStep))
     }
   }
 
   const newStep = (change:number) => {
-    return stepFix(currentStep + change)
+    return stepFix(currentStep.step + change)
   }
 
   
@@ -32,7 +32,7 @@ export const NavBar: React.FC = () => {
      <div>
       <button onClick={decrementStep}>-</button>
       <button onClick={incrementStep}>+</button>
-      <p>{currentStep}</p>
+      <p>{currentStep.step}: {currentStep.title}</p>
       <BrowserRouter>
           <Link to={`/step${newStep(-1)}`} onClick={changeStep(-1)}>back </Link>
           <Link to={`/step${newStep(1)}`} onClick={changeStep(+1)}>next</Link>

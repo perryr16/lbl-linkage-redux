@@ -1,3 +1,4 @@
+
 export const stepFix = (step:number) => {
    if (step < 1) {
      return 6

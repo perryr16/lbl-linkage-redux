@@ -1,6 +1,6 @@
 import React from "react";
-import './App.css';
-import {NavBar} from '../src/components/index'
+import '../App.css';
+import {NavBar} from '../components/index'
 
 function App(props:any) {
   return (

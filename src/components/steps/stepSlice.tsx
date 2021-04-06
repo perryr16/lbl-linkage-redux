@@ -1,26 +1,51 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import type {RootState} from '../../app/store';
 
-// Selectors
-export const selectStep = (state:any):number => state.step;
-
-
-const options = {
-   name: 'step',
-   initialState: 1,
-   reducers: {
-      increment: (state:any) => {
-         return state >= 6 ? 1 : state += 1
-      },
-      decrement: (state:any) => {
-         return state <= 1 ? 6 : state -= 1
-      },
-      setStep: (state:any, action:any) => {
-         return action.payload
-      }
-   }
+interface StepState {
+   step: number;
+   title: string;
 }
 
-const stepSlice = createSlice(options)
+const initialState: StepState = {step: 1, title: 'Project Specifications'}
+
+const stepSlice = createSlice({
+   name: 'step',
+   initialState,
+   reducers: {
+      increment: (state:any) => {
+         state.step += 1
+         state.title = stepRef[state.step]
+      },
+      decrement: (state:StepState) => {
+         state.step -= 1
+         state.title = stepRef[state.step]
+
+      },
+      setStep: (state:any, action: PayloadAction<number>) => {
+         state.step = action.payload
+         state.title = stepRef[action.payload]
+
+      }
+   }
+})
+
+interface StepRef {
+   1: string,
+   2: string,
+   3: string,
+   4: string,
+   5: string,
+   6: string,
+}
+const stepRef:any = {
+   1: 'Project Specifications',
+   2: 'System Selections',
+   3: 'System Details',
+   4: 'System Equipment',
+   5: 'Non-System Equipment',
+   6: 'System Review',
+}
+export const selectStep = (state: RootState) => state.step;
 export const {increment, decrement, setStep} = stepSlice.actions
 export const stepReducer = stepSlice.reducer
 
