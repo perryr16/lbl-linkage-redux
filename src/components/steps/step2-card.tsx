@@ -1,5 +1,4 @@
 import React from 'react';
-import {NavBtn, Step1Card, Step3Card} from '../index'
 
 interface Props {
 

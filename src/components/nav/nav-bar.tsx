@@ -10,16 +10,16 @@ export const NavBar: React.FC = () => {
   const currentStep = useSelector(selectStep)
 
   const incrementStep = () => {
-    dispatch(increment())
+    dispatch<any>(increment())
   }
   const decrementStep = () => {
-    dispatch(decrement())
+    dispatch<any>(decrement())
   }
 
   const changeStep = (change:number):any => {
     let newStep = stepFix(currentStep + change)
     return () => {
-      return dispatch(setStep(newStep))
+      return dispatch<any>(setStep(newStep))
     }
   }
 

@@ -1,8 +1,4 @@
 import React from 'react';
-import {NavBtn, Step2Card, Step3Card} from '../index';
-import {BrowserRouter, Link, Switch, Route} from 'react-router-dom';
-import {useSelector} from 'react-redux';
-import {selectStep} from './stepSlice'
 
 interface Props {
 
