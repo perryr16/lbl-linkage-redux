@@ -1,6 +1,7 @@
 // import {configureStore} from '@reduxjs/toolkit';
 import {createStore, combineReducers } from 'redux';
 import {stepReducer} from '../components/steps/stepSlice';
+
 // import {useSelector} from 'react-redux'
 
 

@@ -1,16 +1,11 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {BrowserRouter, Link, Switch, Route} from 'react-router-dom'
-import {Step1Card, Step2Card, Step3Card, StepRouter} from '../index'
-import {store} from '../../store/store';
+import {StepRouter} from '../index'
 import {selectStep, incrementStep, decrementStep, setStep} from '../steps/stepSlice'
+import {stepFix} from '../../helpers/step-helper'
 
-
-interface Props {
-  dispatch?: any
-}
-
-export const NavBar: React.FC<Props> = (props) => {
+export const NavBar: React.FC = () => {
   const dispatch = useDispatch()
   const currentStep = useSelector(selectStep)
 
@@ -25,16 +20,6 @@ export const NavBar: React.FC<Props> = (props) => {
     let newStep = stepFix(currentStep + change)
     return () => {
       return dispatch(setStep(newStep))
-    }
-  }
-
-  const stepFix = (step:number) => {
-    if (step < 1) {
-      return 6
-    } else if (step > 6) {
-      return 1
-    } else {
-      return step
     }
   }
 
