@@ -2,7 +2,8 @@ import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {BrowserRouter, Link, Switch, Route} from 'react-router-dom'
 import {Step1Card, Step2Card, Step3Card} from '../index'
-import store from '../../store/store';
+import {store} from '../../store/store';
+import {selectStep} from '../steps/stepSlice'
 
 
 interface Props {
@@ -17,21 +18,22 @@ export const NavBar: React.FC<Props> = (props) => {
     let x = 1;
   }
   const increment = () => {
-    store.dispatch({type: 'step/increment'})
+    // store.dispatch({type: 'step/increment'})
   }
   const decrement = () => {
-    store.dispatch({type: 'step/decrement'})
+    // store.dispatch({type: 'step/decrement'})
     // dispatch(decrement)
   }
-
-  const currentStep:any = useSelector<any>(state => state.step)
+  const currentStep = useSelector(selectStep)
+  
+  // const currentStep:any = useSelector<any>(state => state.step)
 
    return (
      <div>
-       {stopHere()}
-       <button onClick={increment}>+</button>
-       <button onClick={decrement}>-</button>
-       <p>{store.getState()}</p>
+      {stopHere()}
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <p>{currentStep}</p>
       <BrowserRouter>
         <div>
           <nav>

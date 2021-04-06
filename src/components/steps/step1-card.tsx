@@ -11,11 +11,9 @@ interface Props {
 export const Step1Card: React.FC<Props> = () => {
 
 
-   const stepx:any = useSelector<any>(state => state.step)
    return (
       <div>
          <h1>STEP 1</h1>
-         <p>{stepx}</p>
          <BrowserRouter>
             <Link to='/step2'>Step 2</Link>
             <Switch>
