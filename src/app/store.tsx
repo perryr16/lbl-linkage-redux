@@ -17,4 +17,3 @@ export const store:any = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
-console.log(store)
