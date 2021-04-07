@@ -8,7 +8,7 @@ interface Props {
 
 }
 
-export const Step3Card: React.FC<Props> = () => {
+export const Step3Card: React.FC = () => {
    const dispatch = useDispatch()
    const step2 = useSelector(selectStep2)
 
