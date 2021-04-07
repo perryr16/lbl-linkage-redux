@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import {SystemCard, MoreInfo} from '../index'
-import {systems} from '../../constants/systems'
-import {Container, Row} from 'react-bootstrap';
-import {System} from '../../interfaces'
+import {useDispatch, useSelector} from 'react-redux';
+import {SystemCard, MoreInfo} from '../index';
+import {systems} from '../../constants/systems';
+import {Row} from 'react-bootstrap';
+import {System} from '../../interfaces';
+import {addSystem, removeSystem, selectStep2} from './step2-slice';
 interface Props {
 }
 
@@ -10,10 +12,25 @@ interface Props {
 export const Step2Card: React.FC<Props> = () => {
    const [show, setShow] = useState(false);
    const [system, setSystem] = useState<System|null>(null);
+   const dispatch = useDispatch()
+   const step2 = useSelector(selectStep2)
 
-   const handleChange = () => {
-      console.log('handleChange')
+   const handleChange = (e:any) => {
+      const icon = systems.filter(system => (
+         system.type == e.target.value
+      ))[0].iconDetail
+      const system = {systemType: e.target.value, icon: icon}
+      let existing = step2.filter((system:any) => system.systemType === e.target.value)
+      existing.length ? handleRemoveSystem(system) : handleAddSystem(system)
    }
+
+   const handleRemoveSystem = (system:any) => {
+      dispatch<any>(removeSystem(system))
+   } 
+   const handleAddSystem = (system:any) => {
+      dispatch<any>(addSystem(system))
+   }
+
    const handleShow = (systemInfo:System) => {
        setSystem(systemInfo);
        setShow(true)

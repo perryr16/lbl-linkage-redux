@@ -14,7 +14,7 @@ export const SystemCard: React.FC<Props> = (props) => {
     return (
       <Col>
          <div className="sys-card" >
-            <input className="sys-check zoom-3x" type="checkbox" value="" id={system.type} onClick={handleChange}/>
+            <input className="sys-check zoom-3x" type="checkbox" value={system.type} id={system.type} onClick={handleChange}/>
             <label className="txt-15 bold sys-name" htmlFor={system.type}>
                {system.type.toUpperCase()}
             </label>

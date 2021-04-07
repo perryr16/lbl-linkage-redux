@@ -1,7 +1,7 @@
 import React from 'react';
 import {states} from '../../constants/states'
 import {useDispatch} from 'react-redux'
-import {setEnergyCode, setLocation, setInput3, setInput4, setInput5} from '../steps/step1-slice'
+import {setEnergyCode, setLocation, setInput3, setInput4, setInput5} from './step1-slice'
 
 interface Props {
 

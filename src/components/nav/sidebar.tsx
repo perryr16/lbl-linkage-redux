@@ -2,6 +2,7 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import {selectStep} from '../steps/step-slice'
 import {selectStep1} from '../steps/step1-slice'
+import {selectStep2, step2Reducer} from '../steps/step2-slice'
 import {Link} from 'react-router-dom';
 
 
@@ -13,6 +14,7 @@ export const Sidebar: React.FC<Props> = () => {
    const address = "1255 Flint Street, Denver, CO"
    const currentStep = useSelector(selectStep)
    const step1 = useSelector(selectStep1)
+   const step2 = useSelector(selectStep2)
 
    const mapStep1 = () => {
       return (
@@ -29,15 +31,18 @@ export const Sidebar: React.FC<Props> = () => {
    }
 
    const mapStep2 = () => {
-      return(
+      return (
          <div className='proj-details'>
             <Link to={`/step2`} className='btn-edit-step'>EDIT</Link>
             <p className='bold'>2: {stepRef[2]}</p>
+            {step2.map((system:any) => (
+               <p>{system.icon} {system.systemType}</p>
+            ))}
          </div>
       )
    }
    const mapStep3 = () => {
-      return(
+      return (
       <div className='proj-details'>
          <Link to={`/step3`} className='btn-edit-step'>EDIT</Link>
          <p className='bold'>3: {stepRef[3]}</p>
@@ -45,22 +50,28 @@ export const Sidebar: React.FC<Props> = () => {
       )
    }
    const mapStep4 = () => {
-      <div className='proj-details'>
-         <Link to={`/step4`} className='btn-edit-step'>EDIT</Link>
-         <p className='bold'>4: {stepRef[4]}</p>
-      </div>
+      return (
+         <div className='proj-details'>
+            <Link to={`/step4`} className='btn-edit-step'>EDIT</Link>
+            <p className='bold'>4: {stepRef[4]}</p>
+         </div>
+      )
    }
    const mapStep5 = () => {
-      <div className='proj-details'>
-         <Link to={`/step5`} className='btn-edit-step'>EDIT</Link>
-         <p className='bold'>5: {stepRef[5]}</p>
-      </div>
+      return (
+         <div className='proj-details'>
+            <Link to={`/step5`} className='btn-edit-step'>EDIT</Link>
+            <p className='bold'>5: {stepRef[5]}</p>
+         </div>
+      )
    }
    const mapStep6 = () => {
-      <div className='proj-details'>
-         <Link to={`/step6`} className='btn-edit-step'>EDIT</Link>
-         <p className='bold'>6: {stepRef[6]}</p>
-      </div>
+      return (
+         <div className='proj-details'>
+            <Link to={`/step6`} className='btn-edit-step'>EDIT</Link>
+            <p className='bold'>6: {stepRef[6]}</p>
+         </div>
+      )
    }
 
    return (
