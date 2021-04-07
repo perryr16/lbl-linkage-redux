@@ -35,11 +35,15 @@
   background-color: transparent;
   color: rgb(47,158,193);
   font-weight: bold;
+}
+.btn-edit-step:hover {
+  background-color: rgb(47,158,193);
+  color: white;
   text-decoration: none;
 }
 .download-progress {
   position: absolute;
-  right: 30px;
+  right: 50px;
   top: 20px;
   font-weight: bold;
 }
@@ -62,24 +66,27 @@
   margin: 10px 10px 0 0;
   text-decoration: none;
 }
+.nav-btns {
+  margin-right: 40px;
+}
 .nav-next {
-  border: 1px solid rgb(47,158,193);
+  border: 2px solid rgb(47,158,193);
   background-color: rgb(47,158,193);
   color: white;
 }
 .nav-next:hover {
   background-color: white;
   color:rgb(47,158,193);
-  border: 1px solid rgb(47,158,193);
+  border: 2px solid rgb(47,158,193);
   text-decoration: none;
 }
 .nav-back {
-  border: 1px solid white;
+  border: 2px solid white;
   background-color: white;
   color: rgb(47,158,193);
 }
 .nav-back:hover {
-  border: 1px solid rgb(47,158,193);
+  border: 2px solid rgb(47,158,193);
   background-color: rgb(47,158,193);
   color: white;
   text-decoration: none;
@@ -129,10 +136,16 @@
   position: absolute;
   top: 20vh;
   border: 1px solid green;
-  width: 100%;
+  padding: 10px 40px 50px 40px;
   height: 75vh;
   left: 35vw;
+  right: 0px;
   overflow: scroll;
+}
+.step-1 {
+  position: absolute;
+  top: 50px;
+  width: 60vw;
 }
 .txt-10 {
   font-size: 10px;

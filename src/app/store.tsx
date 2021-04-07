@@ -1,11 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit';
-import {stepReducer} from '../components/steps/stepSlice';
+import {stepReducer} from '../components/steps/step-slice';
+import {step1Reducer} from '../components/steps/step1-slice';
 
 
 // Store 
 export const store:any = configureStore({
    reducer: {
-      step: stepReducer
+      step: stepReducer,
+      step1: step1Reducer
    }
 })
 

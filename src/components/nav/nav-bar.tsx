@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom'
-import {selectStep, increment, decrement, setStep} from '../steps/stepSlice'
+import {selectStep, increment, decrement, setStep} from '../steps/step-slice'
 import {stepFix} from '../../helpers/step-helper'
 
 
@@ -36,9 +36,10 @@ export const NavBar: React.FC = () => {
         <p className='txt-25 bold gray line-h pad-b-10'>{currentStep.title}</p>
         <p className='download-progress'> Download My Progress</p>
       </div>
-
-      <Link className='nav-btn nav-next bold' to={`/step${newStep(1)}`} onClick={changeStep(+1)}>NEXT STEP</Link>
-      <Link className='nav-btn nav-back bold' to={`/step${newStep(-1)}`} onClick={changeStep(-1)}>BACK </Link>
+      <div className='nav-btns'>
+        <Link className='nav-btn nav-next bold' to={`/step${newStep(1)}`} onClick={changeStep(+1)}>NEXT STEP</Link>
+        <Link className='nav-btn nav-back bold' to={`/step${newStep(-1)}`} onClick={changeStep(-1)}>BACK </Link>
+      </div>
 
       <p className='txt-20 bold pad-l-40 pad-t-20'>{stepPrompts[currentStep.step]}</p>
 
