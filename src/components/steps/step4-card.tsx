@@ -7,7 +7,6 @@ interface Props {
 
 export const Step4Card: React.FC<Props> = () => {
    const step3 = useSelector(selectStep3)
-   const x = 10;
    return (
       <div className='step-card'>
          <h1>STEP 4</h1>

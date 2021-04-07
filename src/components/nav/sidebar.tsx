@@ -17,7 +17,6 @@ export const Sidebar: React.FC<Props> = () => {
    const step1 = useSelector(selectStep1)
    const step2 = useSelector(selectStep2)
    const step3 = useSelector(selectStep3)
-   const x = 1;
 
    const mapStep1 = () => {
       return (

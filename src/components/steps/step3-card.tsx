@@ -10,15 +10,12 @@ interface Props {
 
 export const Step3Card: React.FC<Props> = () => {
    const dispatch = useDispatch()
-
    const step2 = useSelector(selectStep2)
-   const x = 10;
 
    useEffect(() => {
       step2.map((system:any) => (
          dispatch(addSystemType(system.systemType))
       ))
-
    },[])
 
    return (
