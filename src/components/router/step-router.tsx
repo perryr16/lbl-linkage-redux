@@ -6,9 +6,7 @@ import {Step1Card, Step2Card, Step3Card, Step4Card, Step5Card, Step6Card} from '
 export const StepRouter: React.FC = () => {
    return (
       <Switch>
-         <Route exact path="/step1">
-            <Step1Card />
-         </Route>
+
          <Route exact path="/step2">
             <Step2Card />
          </Route>
@@ -23,6 +21,9 @@ export const StepRouter: React.FC = () => {
          </Route>
          <Route exact path="/step6">
             <Step6Card />
+         </Route>
+         <Route path="/">
+            <Step1Card />
          </Route>
       </Switch>
    );

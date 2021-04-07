@@ -1,4 +1,5 @@
 import React from 'react';
+import {StepRouter} from '../index'
 
 interface Props {
    children?: React.FC

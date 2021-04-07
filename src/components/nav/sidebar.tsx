@@ -1,6 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {selectStep} from '../steps/stepSlice'
+import {Link} from 'react-router-dom';
 
 
 interface Props {
@@ -18,7 +19,8 @@ export const Sidebar: React.FC<Props> = () => {
       return (
          stepArr.map(step => (
             <div className='proj-details'>
-               <p>step: {step}</p>
+               <Link to={`/step${step}`} className='btn-edit-step'>EDIT</Link>
+               <p className='bold'>{step}: {stepRef[step]}</p>
             </div>
          ))
       )
@@ -35,4 +37,13 @@ export const Sidebar: React.FC<Props> = () => {
          {mapProjectDetails()}
       </div>
    );
+}
+
+const stepRef:any = {
+   1: 'Project Specifications',
+   2: 'System Selections',
+   3: 'System Details',
+   4: 'System Equipment',
+   5: 'Non-System Equipment',
+   6: 'System Review',
 }
