@@ -2,7 +2,8 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import {selectStep} from '../steps/step-slice'
 import {selectStep1} from '../steps/step1-slice'
-import {selectStep2, step2Reducer} from '../steps/step2-slice'
+import {selectStep2} from '../steps/step2-slice'
+import {selectStep3} from '../steps/step3-slice'
 import {Link} from 'react-router-dom';
 
 
@@ -15,6 +16,8 @@ export const Sidebar: React.FC<Props> = () => {
    const currentStep = useSelector(selectStep)
    const step1 = useSelector(selectStep1)
    const step2 = useSelector(selectStep2)
+   const step3 = useSelector(selectStep3)
+   const x = 1;
 
    const mapStep1 = () => {
       return (
@@ -46,6 +49,9 @@ export const Sidebar: React.FC<Props> = () => {
       <div className='proj-details'>
          <Link to={`/step3`} className='btn-edit-step'>EDIT</Link>
          <p className='bold'>3: {stepRef[3]}</p>
+         {Object.keys(step3).map(key => (
+            <p>key: {key}</p>
+         ))}
       </div>
       )
    }
