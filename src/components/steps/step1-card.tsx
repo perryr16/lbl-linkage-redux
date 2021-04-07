@@ -10,10 +10,6 @@ interface Props {
 export const Step1Card: React.FC<Props> = () => {
    const dispatch = useDispatch()
 
-   const handleChange = () => {
-      console.log('handle change')
-   }
-
    const handleEnergyCode = (e:any) => {
       dispatch<any>(setEnergyCode(e.target.value))
    }

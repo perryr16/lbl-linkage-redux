@@ -1,3 +1,4 @@
+import {MoreInfo} from './modals/more-info'
 import {NavBar} from './nav/nav-bar'
 import {NavBtn} from './nav/nav-btn'
 import {Sidebar} from './nav/sidebar'
@@ -9,8 +10,10 @@ import {Step5Card} from './steps/step5-card'
 import {Step6Card} from './steps/step6-card'
 import {StepSection} from './steps/step-section'
 import {StepRouter} from './router/step-router'
+import {SystemCard} from './systems/system-card'
 
 export {
+   MoreInfo,
    NavBar,
    NavBtn,
    Sidebar,
@@ -22,4 +25,5 @@ export {
    Step6Card,
    StepSection,
    StepRouter,
+   SystemCard,
 }

@@ -94,6 +94,15 @@
 .line-h {
   line-height: 10px;
 }
+.more-info {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  color:  rgb(47,158,193);
+}
 .pad-b-10{
   padding-bottom: 15px;
 }
@@ -147,6 +156,28 @@
   top: 50px;
   width: 60vw;
 }
+.sys-card {
+  border: 1px solid rgb(104, 145, 179);
+  height: 250px;
+  margin-bottom: 20px;
+}
+.sys-check {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.sys-icon {
+  position: absolute;
+  top: 55px;
+  left: 55px;
+}
+.sys-name {
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  width: 200px;
+  text-align: left;
+}
 .txt-10 {
   font-size: 10px;
 }
@@ -168,4 +199,7 @@
 .under-blue {
   border-bottom: 1px solid rgb(47,158,193);
   margin: 0 20px 0 20px;
+}
+.zoom-3x {
+  zoom: 3;
 }
