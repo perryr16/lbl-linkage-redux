@@ -1,10 +1,12 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {selectStep} from '../steps/step-slice'
 import {selectStep1} from '../steps/step1-slice'
 import {selectStep2} from '../steps/step2-slice'
 import {selectStep3} from '../steps/step3-slice'
 import {Link} from 'react-router-dom';
+import {setStep} from '../steps/step-slice'
+
 
 
 interface Props {
@@ -12,16 +14,23 @@ interface Props {
 }
 
 export const Sidebar: React.FC<Props> = () => {
+   const dispatch = useDispatch()
    const address = "1255 Flint Street, Denver, CO"
    const currentStep = useSelector(selectStep)
    const step1 = useSelector(selectStep1)
    const step2 = useSelector(selectStep2)
    const step3 = useSelector(selectStep3)
 
+   const handleStep = (step:number):any => {
+      return () => {
+         return dispatch(setStep(step))
+      }
+   }
+
    const mapStep1 = () => {
       return (
          <div className='proj-details'>
-            <Link to={`/step1`} className='btn-edit-step'>EDIT</Link>
+            <Link to={`/step1`} className='btn-edit-step' onClick={handleStep(1)}>EDIT</Link>
             <p className='bold'>1: {stepRef[1]}</p>
             <p>
             {Object.keys(step1).map(key => (
@@ -35,7 +44,7 @@ export const Sidebar: React.FC<Props> = () => {
    const mapStep2 = () => {
       return (
          <div className='proj-details'>
-            <Link to={`/step2`} className='btn-edit-step'>EDIT</Link>
+            <Link to={`/step2`} className='btn-edit-step' onClick={handleStep(2)}>EDIT</Link>
             <p className='bold'>2: {stepRef[2]}</p>
             {step2.map((system:any) => (
                <p>{system.icon} {system.systemType}</p>
@@ -45,19 +54,19 @@ export const Sidebar: React.FC<Props> = () => {
    }
    const mapStep3 = () => {
       return (
-      <div className='proj-details'>
-         <Link to={`/step3`} className='btn-edit-step'>EDIT</Link>
-         <p className='bold'>3: {stepRef[3]}</p>
-         {Object.keys(step3).map(key => (
-            <p>key: {key}</p>
-         ))}
-      </div>
+         <div className='proj-details'>
+            <Link to={`/step3`} className='btn-edit-step' onClick={handleStep(3)}>EDIT</Link>
+            <p className='bold'>3: {stepRef[3]}</p>
+            {Object.keys(step3).map(key => (
+               <p>key: {key}</p>
+            ))}
+         </div>
       )
    }
    const mapStep4 = () => {
       return (
          <div className='proj-details'>
-            <Link to={`/step4`} className='btn-edit-step'>EDIT</Link>
+            <Link to={`/step4`} className='btn-edit-step' onClick={handleStep(4)}>EDIT</Link>
             <p className='bold'>4: {stepRef[4]}</p>
          </div>
       )
@@ -65,7 +74,7 @@ export const Sidebar: React.FC<Props> = () => {
    const mapStep5 = () => {
       return (
          <div className='proj-details'>
-            <Link to={`/step5`} className='btn-edit-step'>EDIT</Link>
+            <Link to={`/step5`} className='btn-edit-step' onClick={handleStep(5)}>EDIT</Link>
             <p className='bold'>5: {stepRef[5]}</p>
          </div>
       )
@@ -73,7 +82,7 @@ export const Sidebar: React.FC<Props> = () => {
    const mapStep6 = () => {
       return (
          <div className='proj-details'>
-            <Link to={`/step6`} className='btn-edit-step'>EDIT</Link>
+            <Link to={`/step6`} className='btn-edit-step' onClick={handleStep(6)}>EDIT</Link>
             <p className='bold'>6: {stepRef[6]}</p>
          </div>
       )

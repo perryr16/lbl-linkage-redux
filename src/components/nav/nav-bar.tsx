@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom'
-import {selectStep, increment, decrement, setStep} from '../steps/step-slice'
+import {selectStep, setStep} from '../steps/step-slice'
 import {stepFix} from '../../helpers/step-helper'
 
 
