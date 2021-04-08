@@ -10,8 +10,8 @@ const step3Slice = createSlice({
   name: 'step3',
   initialState,
   reducers: {
-    addSystemType: (state, action) => {
-      state[action.payload] = []
+    addSystemType: (state, {payload}) => {
+      state[payload] = []
     },
   }
 })

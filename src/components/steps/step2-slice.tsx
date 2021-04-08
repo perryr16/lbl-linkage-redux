@@ -12,11 +12,11 @@ const step2Slice = createSlice({
   name: 'step2',
   initialState,
   reducers: {
-    addSystem: (state, action) => {
-      state.push(action.payload)
+    addSystem: (state, {payload}) => {
+      state.push(payload)
     },
-    removeSystem: (state, action) => {
-      state.filter(system => system.systemType !== action.payload.systemType)
+    removeSystem: (state, {payload}) => {
+      return state.filter(system => system.systemType !== payload.systemType)
     }
    }
 })
