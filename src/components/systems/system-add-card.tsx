@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {Row, Col} from 'react-bootstrap';
 import {SystemDetailCard} from '../index';
-import {addSystemId} from '../steps/step3-slice';
+import {addSystemId, removeSystemTypeById} from '../steps/step3-slice';
 
 interface Props {
   systemType: string;
@@ -14,11 +14,13 @@ export const SystemAddCard: React.FC<Props> = (props) => {
   
   const dispatch = useDispatch()
 
+  // useEffect(() => {
 
+  // })
   const mapSystemDetailCards = () => {
     return(
       systemDetailCards.map((system:any) => (
-        <SystemDetailCard systemType={system.systemType} systemId={system.systemId} />
+        <SystemDetailCard systemType={system.systemType} systemId={system.systemId} handleRemoveSystem={handleRemoveSystem}/>
         ))
     )
   }
@@ -27,6 +29,21 @@ export const SystemAddCard: React.FC<Props> = (props) => {
     let newSystem:any = {systemType: systemType, systemId: systemDetailCards.length}
     setSystemDetailCards((systems) => [...systems, newSystem ])
     dispatch(addSystemId(newSystem))
+
+  }
+
+
+  const handleRemoveSystem = (systemType:string, systemId:number) => {
+    console.log('here')
+    const payload = {systemType: systemType, systemId: systemId}
+    dispatch(removeSystemTypeById(payload))
+    // setSystemDetailCards((systems) => systems.filter(system => system.systemId !== systemId))
+    // return () => {
+    //   return( 
+    //     dispatch(removeSystemTypeById(payload))
+    //   )}
+    console.log('systemType', systemType)
+    console.log('systemId', systemId)
   }
 
   return (
