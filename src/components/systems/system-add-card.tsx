@@ -10,7 +10,7 @@ interface Props {
 
 export const SystemAddCard: React.FC<Props> = (props) => {
   const {systemType} = props;
-  const [systemDetailCards, setSystemDetailCards] = useState([{systemType: systemType, sysId: 0}]);
+  const [systemDetailCards, setSystemDetailCards] = useState([{systemType: systemType, systemId: 0}]);
   
   const dispatch = useDispatch()
 
@@ -18,14 +18,15 @@ export const SystemAddCard: React.FC<Props> = (props) => {
   const mapSystemDetailCards = () => {
     return(
       systemDetailCards.map((system:any) => (
-        <SystemDetailCard systemType={system.systemType} systemId={system.sysId} />
+        <SystemDetailCard systemType={system.systemType} systemId={system.systemId} />
         ))
     )
   }
 
   const handleAddSystem = () => {
-    let newSystem = {systemType: systemType, sysId: systemDetailCards.length}
+    let newSystem:any = {systemType: systemType, systemId: systemDetailCards.length}
     setSystemDetailCards((systems) => [...systems, newSystem ])
+    dispatch(addSystemId(newSystem))
   }
 
   return (

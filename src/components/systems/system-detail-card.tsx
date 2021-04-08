@@ -1,6 +1,8 @@
 import React from 'react';
-import {Col, Row} from 'react-bootstrap'
-import { convertCompilerOptionsFromJson } from 'typescript';
+import {useDispatch} from 'react-redux';
+import {Col, Row} from 'react-bootstrap';
+
+import {addSystemKeyValue} from '../steps/step3-slice';
 
 interface Props {
   systemType: string;
@@ -9,9 +11,11 @@ interface Props {
 
 export const SystemDetailCard: React.FC<Props> = (props) => {
   const {systemType, systemId} = props;
+  const dispatch = useDispatch();
 
-  const handleChange = () => {
-    console.log('handleChange')
+  const handleChange = (e:any) => {
+    const payload = {systemId: systemId, key: e.target.id , value: e.target.value, systemType: systemType}
+    dispatch(addSystemKeyValue(payload))
   }
   return (
     <div className='sys-detail'>
