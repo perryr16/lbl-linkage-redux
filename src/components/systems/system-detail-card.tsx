@@ -4,18 +4,18 @@ import { convertCompilerOptionsFromJson } from 'typescript';
 
 interface Props {
   systemType: string;
-  sysId: number;
+  systemId: number;
 }
 
 export const SystemDetailCard: React.FC<Props> = (props) => {
-  const {systemType, sysId} = props;
+  const {systemType, systemId} = props;
 
   const handleChange = () => {
     console.log('handleChange')
   }
   return (
     <div className='sys-detail'>
-      <p className='bold txt-20 marg-bottom-20 left-justify mar-l-20 mar-t-20'> System: {systemType} id: {sysId}</p>
+      <p className='bold txt-20 marg-bottom-20 left-justify mar-l-20 mar-t-20'> System {systemId}: {systemType}</p>
       <div className='margin-15' >
           <Row>
             <Col xs={9}>
