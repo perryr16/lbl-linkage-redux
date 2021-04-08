@@ -20,7 +20,7 @@ const step3Slice = createSlice({
       state[payload.systemType][payload.systemId][payload.key] = payload.value
     }, 
     removeSystemTypeById: (state, {payload}) => {
-      return state[payload.systemType].filter((system:any) => system.id != payload.systemId)
+      state[payload.systemType] = state[payload.systemType].filter((system:any) => system.id != payload.systemId)
     }
   }
 })
