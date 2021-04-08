@@ -1,6 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import {Col, Row} from 'react-bootstrap';
+import {SystemDetailHeader} from '../../components/index'
 
 import {addSystemKeyValue, removeSystemTypeById} from '../steps/step3-slice';
 
@@ -21,9 +22,13 @@ export const SystemDetailCard: React.FC<Props> = (props) => {
 
   return (
     <div className='sys-detail'>
-      <p className='bold txt-20 marg-bottom-20 left-justify mar-l-20 mar-t-20'> System {systemId}: {systemType}</p>
+      <SystemDetailHeader 
+        handleRemoveSystem={handleRemoveSystem} 
+        systemType={systemType} 
+        systemId={systemId} 
+      />
+
       <div className='margin-15' >
-          <button className='btn-rm' onClick={() => handleRemoveSystem(systemType, systemId)}>-</button>
           <Row>
             <Col xs={9}>
                 <label htmlFor={`systemName`} className='txt-15 bold float-l'>System Name</label>

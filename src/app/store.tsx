@@ -1,8 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit';
-import {stepReducer} from '../components/steps/step-slice';
-import {step1Reducer} from '../components/steps/step1-slice';
-import {step2Reducer} from '../components/steps/step2-slice';
-import {step3Reducer} from '../components/steps/step3-slice';
+import {stepReducer} from '../features/steps/step-slice';
+import {step1Reducer} from '../features/steps/step1-slice';
+import {step2Reducer} from '../features/steps/step2-slice';
+import {step3Reducer} from '../features/steps/step3-slice';
 
 
 // Store 

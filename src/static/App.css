@@ -27,6 +27,7 @@
 .bold {
   font-weight: bold;
 }
+
 .btn-edit-step {
   float: right;
   padding: 5px 20px 5px 20px;
@@ -41,6 +42,22 @@
   color: white;
   text-decoration: none;
 }
+.btn-plus {
+  background-color: transparent;
+  border: 3px solid rgb(47,158,193);
+  color: rgb(47,158,193);
+  border-radius: 30px;
+  height: 30px; 
+  /* padding-bottom: 5px; */
+  line-height: .5;
+  position: absolute;
+  right: 100px;
+  margin-bottom: 100px;
+}
+.btn-plus:hover {
+  background-color: rgb(47,158,193);
+  color: white;
+}
 .download-progress {
   position: absolute;
   right: 50px;
@@ -49,6 +66,12 @@
 }
 .gray {
   color: gray
+}
+.float-r {
+  float: right;
+}
+.float-l {
+  float: left;
 }
 .nav-bar {
   border: 1px solid red;
