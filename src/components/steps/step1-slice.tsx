@@ -14,20 +14,20 @@ const step1Slice = createSlice({
   name: 'step1',
   initialState,
   reducers: {
-    setEnergyCode: (state, action) => {
-      state.energyCode = action.payload
+    setEnergyCode: (state, {payload}) => {
+      state.energyCode = payload
     },
-    setLocation: (state, action) => {
-      state.location = action.payload
+    setLocation: (state, {payload}) => {
+      state.location = payload
     },
-    setInput3: (state, action) => {
-      state.input3 = action.payload
+    setInput3: (state, {payload}) => {
+      state.input3 = payload
     },
-    setInput4: (state, action) => {
-      state.input4 = action.payload
+    setInput4: (state, {payload}) => {
+      state.input4 = payload
     },
-    setInput5: (state, action) => {
-      state.input5 = action.payload
+    setInput5: (state, {payload}) => {
+      state.input5 = payload
     },
   }
 })

@@ -10,6 +10,7 @@ import {Step5Card} from './steps/step5-card'
 import {Step6Card} from './steps/step6-card'
 import {StepSection} from './steps/step-section'
 import {StepRouter} from './router/step-router'
+import {SystemAddCard} from './systems/system-add-card'
 import {SystemCard} from './systems/system-card'
 import {SystemDetailCard} from './systems/system-detail-card'
 
@@ -26,6 +27,7 @@ export {
    Step6Card,
    StepSection,
    StepRouter,
+   SystemAddCard,
    SystemCard,
    SystemDetailCard,
 }

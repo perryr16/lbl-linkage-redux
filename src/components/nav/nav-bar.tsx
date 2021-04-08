@@ -49,7 +49,7 @@ export const NavBar: React.FC = () => {
 
 
 const stepPrompts:any = {
-  1: "Tell us about your project and it's enrgy standards:",
+  1: "Tell us about your project and it's energy standards:",
   2: "Select the systems your building will use:",
   3: "Tell us about how your systems will be configured:",
   4: "Add your system level equipment",
