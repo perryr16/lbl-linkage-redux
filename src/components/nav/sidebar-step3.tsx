@@ -58,26 +58,13 @@ const step3Inputs = (system:any) => {
   const keysToDelete = ['id', 'systemName', 'qty']
   const relaventInputs = {...system}
   keysToDelete.forEach(key => delete relaventInputs[key])
-  console.log('rel inputs:', relaventInputs)
+  return step3InputString(relaventInputs)
+}
+
+const step3InputString = (relaventInputs:any) => {
   let returnString = ''
   Object.keys(relaventInputs).map(key => (
     returnString += `| ${relaventInputs[key]}`
   ))
   return returnString
-}
-
-const step3SystemKeys = (system:any, systemType:any) => {
-  const systemCopy = {...system[0]}
-  delete systemCopy.id
-  return(
-     <p>
-        {systems.filter(system => system.type == systemType)[0].iconDetail}
-        {/* {systemCopy.filter((system:any) => system.type == systemType)[0].iconDetail} */}
-        {Object.keys(systemCopy).map((key:any) => (
-           `${key}: ${systemCopy[key]} |`
-        ))}
-
-     </p>
-  )
-
 }
