@@ -250,6 +250,10 @@
   border-bottom: 1px solid rgb(47,158,193);
   margin: 0 20px 0 20px;
 }
+.under-gray {
+  border-bottom: 1px solid rgb(72, 77, 78);
+  margin: 0 20px 0 20px;
+}
 .zoom-3x {
   zoom: 3;
 }

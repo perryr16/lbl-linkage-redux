@@ -84,10 +84,10 @@ export const Sidebar: React.FC<Props> = () => {
    return (
       <div className='sidebar'>
          <div className='address'>
-            <p>{address}</p>
+            <p className='under-gray'>{address}</p>
          </div>
          <div className='proj-details-a'>
-            <p className='bold'>Project Details</p>
+            <p className='bold'>Project Details:</p>
          </div>
          {currentStep.step > 1 && mapStep1()}
          {currentStep.step > 2 && mapStep2()}
