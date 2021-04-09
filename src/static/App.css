@@ -77,14 +77,18 @@
   top: 20px;
   font-weight: bold;
 }
-.gray {
-  color: gray
-}
+
 .float-r {
   float: right;
 }
 .float-l {
   float: left;
+}
+.gray {
+  color: gray
+}
+.indent{
+  margin-left: 30px;
 }
 .nav-bar {
   border: 1px solid red;
@@ -176,6 +180,9 @@
 .sidebar div {
   text-align: left;
   padding: 30px;
+}
+.side-sys-type {
+  line-height: 1;
 }
 .step-card {
   position: absolute;

@@ -6,6 +6,8 @@ import {selectStep2} from '../steps/step2-slice'
 import {selectStep3} from '../steps/step3-slice'
 import {Link} from 'react-router-dom';
 import {setStep} from '../steps/step-slice'
+import {systems} from '../../constants/systems';
+import {SidebarStep3} from '../../components/index'
 
 
 
@@ -52,17 +54,8 @@ export const Sidebar: React.FC<Props> = () => {
          </div>
       )
    }
-   const mapStep3 = () => {
-      return (
-         <div className='proj-details'>
-            <Link to={`/step3`} className='btn-edit-step' onClick={handleStep(3)}>EDIT</Link>
-            <p className='bold'>3: {stepRef[3]}</p>
-            {Object.keys(step3).map(key => (
-               <p>key: {key}</p>
-            ))}
-         </div>
-      )
-   }
+
+
    const mapStep4 = () => {
       return (
          <div className='proj-details'>
@@ -98,7 +91,11 @@ export const Sidebar: React.FC<Props> = () => {
          </div>
          {currentStep.step > 1 && mapStep1()}
          {currentStep.step > 2 && mapStep2()}
-         {currentStep.step > 3 && mapStep3()}
+         {currentStep.step > 3 && 
+            <SidebarStep3 
+               handleStep={handleStep} 
+               step3={step3}
+            />}
          {currentStep.step > 4 && mapStep4()}
          {currentStep.step > 5 && mapStep5()}
          {currentStep.step > 6 && mapStep6()}

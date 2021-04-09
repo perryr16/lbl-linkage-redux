@@ -25,9 +25,12 @@ export const SystemDetailCard: React.FC<Props> = (props) => {
 
   const handleAddNote = () => {
     setShowNote(!showNote)
-    const notesExist:any = step3[systemType].filter((system:any) => system.id == systemId)[0].systemNotes
+    showNote && deleteNote()
+  }
 
-    if (notesExist && !showNote) {
+  const deleteNote = () => {
+    const notesExist:any = step3[systemType].filter((system:any) => system.id == systemId)[0].systemNotes
+    if (notesExist) {
       const index = step3[systemType].indexOf(step3[systemType].filter((system:any) => system.id == systemId)[0])
       dispatch(removeSystemKey({systemType: systemType, index: index, key: 'systemNotes'}))
     }
