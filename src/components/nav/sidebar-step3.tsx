@@ -36,7 +36,7 @@ const mapStep3Systems = (step3:any, systemType:any) => {
   console.log('step3Systems:', step3[systemType])
   return (
       step3[systemType].map((system:any) => (
-        <p className='indent bold txt-15'>{step3Icon(systemType)} ({step3Qty(system)}) {step3Name(system)} {step3Inputs(system)} {step3Inputs(system)}</p>
+        <p className='indent bold txt-15'>{step3Icon(systemType)} {step3Qty(system)} {step3Name(system)} {step3Inputs(system)}</p>
       ))
   )
 }
@@ -46,7 +46,7 @@ const step3Name = (system:any) => {
 }
 const step3Qty = (system:any) => {
   console.log('step3Qty')
-  return system.qty&& system.qty
+  return system.qty && `(${system.qty})`
   
 }
 const step3Icon = (systemType:any) => {
@@ -55,10 +55,10 @@ const step3Icon = (systemType:any) => {
     )
 }
 const step3Inputs = (system:any) => {
-  console.log('step3Inputs:', system)
   const keysToDelete = ['id', 'systemName', 'qty']
   const relaventInputs = {...system}
   keysToDelete.forEach(key => delete relaventInputs[key])
+  console.log('rel inputs:', relaventInputs)
   let returnString = ''
   Object.keys(relaventInputs).map(key => (
     returnString += `| ${relaventInputs[key]}`
