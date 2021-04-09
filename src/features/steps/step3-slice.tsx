@@ -21,10 +21,13 @@ const step3Slice = createSlice({
     }, 
     removeSystemTypeById: (state, {payload}) => {
       state[payload.systemType] = state[payload.systemType].filter((system:any) => system.id != payload.systemId)
+    },
+    removeSystemKey: (state, {payload}) => {
+      delete state[payload.systemType][payload.index][payload.key]
     }
   }
 })
 
 export const selectStep3 = (state: RootState) => state.step3;
-export const {addSystemType, addSystemId, addSystemKeyValue, removeSystemTypeById} = step3Slice.actions;
+export const {addSystemType, addSystemId, addSystemKeyValue, removeSystemTypeById, removeSystemKey} = step3Slice.actions;
 export const step3Reducer = step3Slice.reducer;

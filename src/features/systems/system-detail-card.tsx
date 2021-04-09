@@ -1,51 +1,54 @@
-import React from 'react';
-import {useDispatch} from 'react-redux';
+import React, {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {Col, Row} from 'react-bootstrap';
-import {SystemDetailHeader} from '../../components/index'
-
-import {addSystemKeyValue, removeSystemTypeById} from '../steps/step3-slice';
+import {SystemDetailHeader, SystemDetailInputs, SystemDetailNotes} from '../../components/index'
+import {addSystemKeyValue, removeSystemTypeById, removeSystemKey, selectStep3} from '../steps/step3-slice';
+import {systemsInputs} from '../../constants/systems'
 
 interface Props {
-  systemType: string;
+  systemType: any;
   systemId: number;
   handleRemoveSystem: any
 }
 
 export const SystemDetailCard: React.FC<Props> = (props) => {
+  const [showNote, setShowNote] = useState(false);
   const {systemType, systemId, handleRemoveSystem} = props;
   const dispatch = useDispatch();
+  const step3 = useSelector(selectStep3)
+  const inputs = systemsInputs.filter(sys => sys.type == systemType)[0].inputs
 
   const handleChange = (e:any) => {
     const payload = {systemId: systemId, key: e.target.id , value: e.target.value, systemType: systemType}
     dispatch(addSystemKeyValue(payload))
   }
 
+  const handleAddNote = () => {
+    setShowNote(!showNote)
+    const notesExist:any = step3[systemType].filter((system:any) => system.id == systemId)[0].systemNotes
+
+    if (notesExist && !showNote) {
+      const index = step3[systemType].indexOf(step3[systemType].filter((system:any) => system.id == systemId)[0])
+      dispatch(removeSystemKey({systemType: systemType, index: index, key: 'systemNotes'}))
+    }
+  }
+
   return (
     <div className='sys-detail'>
       <SystemDetailHeader 
         handleRemoveSystem={handleRemoveSystem} 
+        handleAddNote={handleAddNote}
         systemType={systemType} 
         systemId={systemId} 
+        showNote={showNote}
       />
-
-      <div className='margin-15' >
-          <Row>
-            <Col xs={9}>
-                <label htmlFor={`systemName`} className='txt-15 bold float-l'>System Name</label>
-                <input type="text" className="form-control" id="systemName" placeholder='System 1' onChange={handleChange}/>
-            </Col>
-            <Col xs={2} >
-                <label htmlFor={`qty`} className='txt-15 bold float-l'>Quantity</label>
-                <input type="number" className="form-control" id={`qty`} placeholder='0' onChange={handleChange}/>
-            </Col>
-          </Row>
-          <label htmlFor={`zone`} className='txt-15 bold float-l'>Single or Multi Zone</label>
-          <select className="form-control" id={`zone`} onChange={handleChange} defaultValue={'DEFAULT'}>
-            <option value="DEFAULT" disabled>Select One</option>
-            <option >Single Zone</option>
-            <option >Multi Zone</option>
-          </select>
-      </div>
+      {showNote && <SystemDetailNotes handleChange={handleChange} handleAddNote={handleAddNote}/>}
+      <SystemDetailInputs 
+        handleChange={handleChange}
+        inputs={inputs}
+      />
+      
     </div>
   );
 }
+

@@ -46,3 +46,36 @@ export const systems:System[] = [
       iconDetail: <FontAwesomeIcon className="sys-icon-detail" size='1x' icon={faIcicles} /> 
    },
 ]
+
+export const systemsInputs = [
+   { 
+      id: 1,
+      type: "Variable Air Volume", 
+      inputs: {'Single or Multizone': ['Single Zone', 'MultiZone']}
+   },
+   { 
+      id: 2,
+      type: "Boiler Plant", 
+      inputs: {'Boiler Type': ['Water Tube', 'Immersion Tube', 'Veritcal Tube']}
+   },
+   { 
+      id: 3,
+      type: "Water Source Heat Pump Loop", 
+      inputs: {'Loop Type': ['Horizontal Loop', 'Vertical Loop', 'Pond/Lake Loop', 'Open Loop']}
+   },
+   { 
+      id: 4,
+      type: "Independant Cooling Tower", 
+      inputs: {'Cooling Tower Type': ['Crossflow', 'Counterflow', 'Hyperbolic']}
+   },
+   { 
+      id: 5,
+      type: "Variable Refrigerant Flow", 
+      inputs: {'Refrigerant Flow Type': ['Heat Pump', 'Heat Recovery', 'Water-Cooling', 'Gas Operated']}
+   },
+   { 
+      id: 6,
+      type: "Chiller Plant", 
+      inputs: {'Chiller Type': ['Air', 'Water', 'Evaporative Condensed']}
+   },
+]

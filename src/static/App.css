@@ -27,7 +27,20 @@
 .bold {
   font-weight: bold;
 }
+.btn-add-note {
+  color: black;
+  /* width: 120px; */
+  background-color: transparent;
+  color: rgb(47,158,193);
+  border: 2px solid transparent;
+}
+.btn-add-note:hover {
+  color: white;
+  background-color: rgb(47,158,193);
+  border-radius: 30px;
+  border: 2px solid rgb(47,158,193);
 
+}
 .btn-edit-step {
   float: right;
   padding: 5px 20px 5px 20px;
@@ -50,14 +63,14 @@
   height: 30px; 
   /* padding-bottom: 5px; */
   line-height: .5;
-  position: absolute;
-  right: 100px;
-  margin-bottom: 100px;
+  /* position: absolute; */
+  /* margin-bottom: 100px; */
 }
 .btn-plus:hover {
   background-color: rgb(47,158,193);
   color: white;
 }
+
 .download-progress {
   position: absolute;
   right: 50px;
