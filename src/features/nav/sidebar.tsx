@@ -30,10 +30,14 @@ export const Sidebar: React.FC<Props> = () => {
    }
 
    const mapStep1 = () => {
+      const handleRightClick = () => {
+         // console.log("RIGHT CLICK")
+         handleStep(1)
+      }
       return (
          <div className='proj-details'>
             <Link to={`/step1`} className='btn-edit-step' onClick={handleStep(1)}>EDIT</Link>
-            <p className='bold'>1: {stepRef[1]}</p>
+            <p className='bold' onContextMenu={handleRightClick}>1: {stepRef[1]}</p>
             <p>
             {Object.keys(step1).map(key => (
                step1[key] && `| ${step1[key]} `
