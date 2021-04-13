@@ -24,6 +24,8 @@ export const Sidebar: React.FC<Props> = () => {
    const step3 = useSelector(selectStep3)
 
    const handleStep = (step:number):any => {
+      console.log('handleStep')
+      console.log(step)
       return () => {
          return dispatch(setStep(step))
       }
@@ -33,6 +35,9 @@ export const Sidebar: React.FC<Props> = () => {
       const handleRightClick = () => {
          // console.log("RIGHT CLICK")
          handleStep(1)
+         return (
+            <p>CONTEXT MENU</p>
+         )
       }
       return (
          <div className='proj-details'>
