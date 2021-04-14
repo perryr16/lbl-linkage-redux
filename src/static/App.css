@@ -73,7 +73,7 @@
 }
 .context-menu {
   position: fixed;
-  border: 1px solid black;
+  border: 1px solid rgb(10, 10, 10);
   border-radius: 5px;
   background-color: rgb(85, 83, 83);
   color: white;
@@ -85,7 +85,7 @@
   color: white;
 }
 .context-menu-item:not(:first-child) {
-  border-top: 1px solid black;
+  border-top: 1px solid rgb(139, 139, 139);
 }
 .context-menu-item:hover {
   background-color: rgb(81, 148, 236);

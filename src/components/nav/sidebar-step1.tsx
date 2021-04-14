@@ -1,8 +1,8 @@
 import React, {useRef} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {ContextMenu} from '../../components/index'
-import {stepRef} from '../../constants/step-ref';
+import {stepRef} from '../../constants/index';
 import {selectStep1} from '../../features/steps/step1-slice'
 
 
