@@ -18,7 +18,7 @@ export const SidebarStep4: React.FC<Props> = (props) => {
 ]
 
   return (
-    <div className='proj-details'>
+    <div className='proj-details' ref={containerRef}>
        <Link to={`/step4`} className='btn-edit-step' onClick={() => handleStep(4)}>EDIT</Link>
        <p className='bold'>4: {stepRef[4]}</p>
        <ContextMenu parentRef={containerRef} items={menuItems} />
