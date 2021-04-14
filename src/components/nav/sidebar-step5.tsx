@@ -10,9 +10,10 @@ interface Props {
 
 export const SidebarStep5: React.FC<Props> = (props) => {
   const {handleStep} = props;
+  const containerRef = useRef(null)
 
   return (
-    <div className='proj-details'>
+    <div className='proj-details' ref={containerRef}>
       <Link to={`/step5`} className='btn-edit-step' onClick={handleStep(5)}>EDIT</Link>
       <p className='bold'>5: {stepRef[5]}</p>
       <ContextMenu parentRef={containerRef} items={menuItems} />
