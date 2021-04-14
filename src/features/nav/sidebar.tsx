@@ -1,13 +1,12 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectStep} from '../steps/step-slice'
-import {selectStep1} from '../steps/step1-slice'
 import {selectStep2} from '../steps/step2-slice'
 import {selectStep3} from '../steps/step3-slice'
 import {Link} from 'react-router-dom';
 import {setStep} from '../steps/step-slice'
-import {systems} from '../../constants/systems';
-import {SidebarStep3, ContextMenu} from '../../components/index'
+import {stepRef} from '../../constants/step-ref';
+import {SidebarStep3, SidebarStep1} from '../../components/index'
 
 
 
@@ -19,44 +18,15 @@ export const Sidebar: React.FC<Props> = () => {
    const dispatch = useDispatch()
    const address = "1255 Flint Street, Denver, CO"
    const currentStep = useSelector(selectStep)
-   const step1 = useSelector(selectStep1)
    const step2 = useSelector(selectStep2)
    const step3 = useSelector(selectStep3)
-   const containerRef = useRef(null)
 
    const handleStep = (step:number):any => {
-      console.log('handleStep')
-      console.log(step)
       return () => {
          return dispatch(setStep(step))
       }
    }
 
-   const mapStep1 = () => {
-      const menuItems = [
-         {
-            text: 'item1',
-            onClick: () => {console.log('item 1 clicked')},
-         },
-         {
-            text: 'item2',
-            onClick: () => {console.log('item 2 clicked')}
-         }
-      ]
-   
-      return (
-         <div className='proj-details' ref={containerRef}>
-            <Link to={`/step1`} className='btn-edit-step' onClick={handleStep(1)}>EDIT</Link>
-            <p className='bold' >1: {stepRef[1]}</p>
-            <p>
-            {Object.keys(step1).map(key => (
-               step1[key] && `| ${step1[key]} `
-            ))}
-            </p>
-            <ContextMenu parentRef={containerRef} items={menuItems}/>
-         </div>
-      )
-   }
 
    const mapStep2 = () => {
       return (
@@ -98,13 +68,13 @@ export const Sidebar: React.FC<Props> = () => {
 
    return (
       <div className='sidebar'>
-         <div className='address'>
+         <div className='address pad-30'>
             <p className='under-gray'>{address}</p>
          </div>
          <div className='proj-details-a'>
-            <p className='bold'>Project Details:</p>
+            <p className='bold '>Project Details:</p>
          </div>
-         {currentStep.step > 1 && mapStep1()}
+         {currentStep.step > 1 && <SidebarStep1 handleStep={handleStep}/>}
          {currentStep.step > 2 && mapStep2()}
          {currentStep.step > 3 && 
             <SidebarStep3 
@@ -118,11 +88,3 @@ export const Sidebar: React.FC<Props> = () => {
    );
 }
 
-const stepRef:any = {
-   1: 'Project Specifications',
-   2: 'System Selections',
-   3: 'System Details',
-   4: 'System Equipment',
-   5: 'Non-System Equipment',
-   6: 'System Review',
-}
