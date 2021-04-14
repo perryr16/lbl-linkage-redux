@@ -12,8 +12,8 @@ export const SidebarStep4: React.FC<Props> = (props) => {
   const containerRef = useRef(null);
 
   const menuItems = [
-    {text: 'Alert 1', onClick: () => {alert('Step 1')}},
-    {text:  <Link to={`/step1`} className='context-menu-item-link' onClick={handleStep(1)}>Edit Step 1</Link>,
+    {text: 'Alert 4', onClick: () => {alert('Step 4')}},
+    {text:  <Link to={`/step4`} className='context-menu-item-link' onClick={handleStep(4)}>Edit Step 4</Link>,
     onClick: null},
 ]
 
