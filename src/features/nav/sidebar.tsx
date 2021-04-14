@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectStep} from '../steps/step-slice'
 import {selectStep1} from '../steps/step1-slice'
@@ -7,7 +7,7 @@ import {selectStep3} from '../steps/step3-slice'
 import {Link} from 'react-router-dom';
 import {setStep} from '../steps/step-slice'
 import {systems} from '../../constants/systems';
-import {SidebarStep3} from '../../components/index'
+import {SidebarStep3, ContextMenu} from '../../components/index'
 
 
 
@@ -22,6 +22,7 @@ export const Sidebar: React.FC<Props> = () => {
    const step1 = useSelector(selectStep1)
    const step2 = useSelector(selectStep2)
    const step3 = useSelector(selectStep3)
+   const containerRef = useRef(null)
 
    const handleStep = (step:number):any => {
       console.log('handleStep')
@@ -32,22 +33,17 @@ export const Sidebar: React.FC<Props> = () => {
    }
 
    const mapStep1 = () => {
-      const handleRightClick = () => {
-         // console.log("RIGHT CLICK")
-         handleStep(1)
-         return (
-            <p>CONTEXT MENU</p>
-         )
-      }
+   
       return (
-         <div className='proj-details'>
+         <div className='proj-details' ref={containerRef}>
             <Link to={`/step1`} className='btn-edit-step' onClick={handleStep(1)}>EDIT</Link>
-            <p className='bold' onContextMenu={handleRightClick}>1: {stepRef[1]}</p>
+            <p className='bold' >1: {stepRef[1]}</p>
             <p>
             {Object.keys(step1).map(key => (
                step1[key] && `| ${step1[key]} `
             ))}
             </p>
+            <ContextMenu parentRef={containerRef} />
          </div>
       )
    }
