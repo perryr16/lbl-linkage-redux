@@ -7,7 +7,8 @@ interface Props {
 }
 
 export const SidebarStep5: React.FC<Props> = (props) => {
-  const {props}
+  const {handleStep} = props;
+  
   return (
     <div className='proj-details'>
        <Link to={`/step5`} className='btn-edit-step' onClick={handleStep(5)}>EDIT</Link>

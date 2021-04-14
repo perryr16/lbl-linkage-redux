@@ -22,24 +22,6 @@ export const Sidebar: React.FC<Props> = () => {
       }
    }
 
-
-   const mapStep5 = () => {
-      return (
-         <div className='proj-details'>
-            <Link to={`/step5`} className='btn-edit-step' onClick={handleStep(5)}>EDIT</Link>
-            <p className='bold'>5: {stepRef[5]}</p>
-         </div>
-      )
-   }
-   const mapStep6 = () => {
-      return (
-         <div className='proj-details'>
-            <Link to={`/step6`} className='btn-edit-step' onClick={handleStep(6)}>EDIT</Link>
-            <p className='bold'>6: {stepRef[6]}</p>
-         </div>
-      )
-   }
-
    return (
       <div className='sidebar'>
          <div className='address pad-30'>
@@ -52,8 +34,8 @@ export const Sidebar: React.FC<Props> = () => {
          {currentStep.step > 2 && <SidebarStep2 handleStep={handleStep} />}
          {currentStep.step > 3 && <SidebarStep3 handleStep={handleStep} />}
          {currentStep.step > 4 && <SidebarStep4 handleStep={handleStep} />}
-         {currentStep.step > 5 && <SidebarStep5 />}
-         {currentStep.step > 6 && <SidebarStep6 />}
+         {currentStep.step > 5 && <SidebarStep5 handleStep={handleStep} />}
+         {currentStep.step > 6 && <SidebarStep6 handleStep={handleStep} />}
       </div>
    );
 }

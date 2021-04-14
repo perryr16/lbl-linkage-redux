@@ -10,18 +10,16 @@ interface Props {
 }
 
 export const SidebarStep1: React.FC<Props> = (props) => {
-  const containerRef = useRef(null)
   const {handleStep} = props;
-  const step1 = useSelector(selectStep1)
+  const containerRef = useRef(null);
+  const step1 = useSelector(selectStep1);
 
 
-    const menuItems = [
-       {text: 'item1', onClick: () => {console.log('item 1 clicked')},},
-       {text: 'Alert 2', onClick: () => {alert('Item 2')}},
-       {text:  <Link to={`/step4`} className='context-menu-item-link' onClick={handleStep(4)}>Edit Step 1</Link>,
-       onClick: null},
-       {text: 'Alert 2', onClick: () => {alert('Item 2')}},
-    ]
+  const menuItems = [
+      {text: 'Alert 1', onClick: () => {alert('Step 1')}},
+      {text:  <Link to={`/step1`} className='context-menu-item-link' onClick={handleStep(1)}>Edit Step 1</Link>,
+      onClick: null},
+  ]
 
     return (
       <div className='proj-details' ref={containerRef}>

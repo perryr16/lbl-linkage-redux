@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom'
+import {ContextMenu} from '../../components/index'
 import {stepRef, systems} from '../../constants/index'
 import {selectStep3} from '../../features/index'
 
@@ -10,11 +11,18 @@ interface Props {
 }
 
 export const SidebarStep3: React.FC<Props> = (props) => {
+  const containerRef = useRef(null);
   const {handleStep} = props;
   const step3 = useSelector(selectStep3)
+
+  const menuItems = [
+    {text: 'Alert 3', onClick: () => {alert('Step 3')}},
+    {text:  <Link to={`/step3`} className='context-menu-item-link' onClick={handleStep(3)}>Edit Step 1</Link>,
+    onClick: null},
+  ]
   
   return (
-    <div className='proj-details'>
+    <div className='proj-details' ref={containerRef}>
       <Link to={`/step3`} className='btn-edit-step' onClick={() => handleStep(3)}>EDIT</Link>
       <p className='bold'>3: {stepRef[3]}</p>
       {Object.keys(step3).map((systemType:any) => (
@@ -23,6 +31,7 @@ export const SidebarStep3: React.FC<Props> = (props) => {
           {mapStep3Systems(step3, systemType)}
         </>
       ))}
+      <ContextMenu parentRef={containerRef} items={menuItems} />
     </div>
   );
 }
