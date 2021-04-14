@@ -3,10 +3,7 @@ import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {ContextMenu} from '../../components/index'
 import {stepRef} from '../../constants/index';
-import {selectStep1} from '../../features/steps/step1-slice'
-
-
-
+import {selectStep1} from '../../features/index'
 
 interface Props {
   handleStep: any;

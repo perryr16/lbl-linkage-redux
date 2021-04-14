@@ -1,13 +1,10 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {selectStep} from '../steps/step-slice'
-import {selectStep2} from '../steps/step2-slice'
-import {selectStep3} from '../steps/step3-slice'
 import {Link} from 'react-router-dom';
+import {selectStep, selectStep2, selectStep3} from '../index'
+import {stepRef} from '../../constants/index';
+import {SidebarStep3, SidebarStep1, SidebarStep2} from '../../components/index'
 import {setStep} from '../steps/step-slice'
-import {stepRef} from '../../constants/step-ref';
-import {SidebarStep3, SidebarStep1} from '../../components/index'
-
 
 
 interface Props {
@@ -18,28 +15,12 @@ export const Sidebar: React.FC<Props> = () => {
    const dispatch = useDispatch()
    const address = "1255 Flint Street, Denver, CO"
    const currentStep = useSelector(selectStep)
-   const step2 = useSelector(selectStep2)
-   const step3 = useSelector(selectStep3)
 
    const handleStep = (step:number):any => {
       return () => {
          return dispatch(setStep(step))
       }
    }
-
-
-   const mapStep2 = () => {
-      return (
-         <div className='proj-details'>
-            <Link to={`/step2`} className='btn-edit-step' onClick={handleStep(2)}>EDIT</Link>
-            <p className='bold'>2: {stepRef[2]}</p>
-            {step2.map((system:any) => (
-               <p>{system.icon} {system.systemType}</p>
-            ))}
-         </div>
-      )
-   }
-
 
    const mapStep4 = () => {
       return (
@@ -75,12 +56,8 @@ export const Sidebar: React.FC<Props> = () => {
             <p className='bold '>Project Details:</p>
          </div>
          {currentStep.step > 1 && <SidebarStep1 handleStep={handleStep}/>}
-         {currentStep.step > 2 && mapStep2()}
-         {currentStep.step > 3 && 
-            <SidebarStep3 
-               handleStep={handleStep} 
-               step3={step3}
-            />}
+         {currentStep.step > 2 && <SidebarStep2 handleStep={handleStep}/>}
+         {currentStep.step > 3 && <SidebarStep3 handleStep={handleStep}/>}
          {currentStep.step > 4 && mapStep4()}
          {currentStep.step > 5 && mapStep5()}
          {currentStep.step > 6 && mapStep6()}

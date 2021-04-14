@@ -1,15 +1,17 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom'
-import {stepRef} from '../../constants/step-ref'
-import {systems} from '../../constants/systems'
+import {stepRef, systems} from '../../constants/index'
+import {selectStep3} from '../../features/index'
+
 
 interface Props {
   handleStep: any;
-  step3: any;
 }
 
 export const SidebarStep3: React.FC<Props> = (props) => {
-  const {step3, handleStep} = props;
+  const {handleStep} = props;
+  const step3 = useSelector(selectStep3)
   
   return (
     <div className='proj-details'>
@@ -31,7 +33,6 @@ const step3SystemType = (systemType:any) => {
      <p className='bold side-sys-type gray'>{systemType}</p>
   )
 }
-
 const mapStep3Systems = (step3:any, systemType:any) => {
   console.log('step3Systems:', step3[systemType])
   return (
@@ -47,7 +48,6 @@ const step3Name = (system:any) => {
 const step3Qty = (system:any) => {
   console.log('step3Qty')
   return system.qty && `(${system.qty})`
-  
 }
 const step3Icon = (systemType:any) => {
   return (
@@ -60,7 +60,6 @@ const step3Inputs = (system:any) => {
   keysToDelete.forEach(key => delete relaventInputs[key])
   return step3InputString(relaventInputs)
 }
-
 const step3InputString = (relaventInputs:any) => {
   let returnString = ''
   Object.keys(relaventInputs).map(key => (
