@@ -25,7 +25,6 @@ export const ContextMenu: React.FC<Props> = (props) => {
       setVisible(true);
       setX(e.clientX)
       setY(e.clientY)
-      console.log('show');
     };
 
     const closeMenu = () => {
@@ -40,8 +39,6 @@ export const ContextMenu: React.FC<Props> = (props) => {
       window.removeEventListener('click', closeMenu);
     }
   })
-
-
 
   const style = {
     top: y,
