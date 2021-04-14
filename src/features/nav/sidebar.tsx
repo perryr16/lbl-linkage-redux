@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {selectStep, selectStep2, selectStep3} from '../index'
 import {stepRef} from '../../constants/index';
-import {SidebarStep3, SidebarStep1, SidebarStep2} from '../../components/index'
+import {SidebarStep1, SidebarStep2, SidebarStep3, SidebarStep4, SidebarStep5, SidebarStep6} from '../../components/index'
 import {setStep} from '../steps/step-slice'
 
 
@@ -22,14 +22,7 @@ export const Sidebar: React.FC<Props> = () => {
       }
    }
 
-   const mapStep4 = () => {
-      return (
-         <div className='proj-details'>
-            <Link to={`/step4`} className='btn-edit-step' onClick={handleStep(4)}>EDIT</Link>
-            <p className='bold'>4: {stepRef[4]}</p>
-         </div>
-      )
-   }
+
    const mapStep5 = () => {
       return (
          <div className='proj-details'>
@@ -55,12 +48,12 @@ export const Sidebar: React.FC<Props> = () => {
          <div className='proj-details-a'>
             <p className='bold '>Project Details:</p>
          </div>
-         {currentStep.step > 1 && <SidebarStep1 handleStep={handleStep}/>}
-         {currentStep.step > 2 && <SidebarStep2 handleStep={handleStep}/>}
-         {currentStep.step > 3 && <SidebarStep3 handleStep={handleStep}/>}
-         {currentStep.step > 4 && mapStep4()}
-         {currentStep.step > 5 && mapStep5()}
-         {currentStep.step > 6 && mapStep6()}
+         {currentStep.step > 1 && <SidebarStep1 handleStep={handleStep} />}
+         {currentStep.step > 2 && <SidebarStep2 handleStep={handleStep} />}
+         {currentStep.step > 3 && <SidebarStep3 handleStep={handleStep} />}
+         {currentStep.step > 4 && <SidebarStep4 handleStep={handleStep} />}
+         {currentStep.step > 5 && <SidebarStep5 />}
+         {currentStep.step > 6 && <SidebarStep6 />}
       </div>
    );
 }
