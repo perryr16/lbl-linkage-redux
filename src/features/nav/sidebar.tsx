@@ -33,6 +33,16 @@ export const Sidebar: React.FC<Props> = () => {
    }
 
    const mapStep1 = () => {
+      const menuItems = [
+         {
+            text: 'item1',
+            onClick: () => {console.log('item 1 clicked')},
+         },
+         {
+            text: 'item2',
+            onClick: () => {console.log('item 2 clicked')}
+         }
+      ]
    
       return (
          <div className='proj-details' ref={containerRef}>
@@ -43,7 +53,7 @@ export const Sidebar: React.FC<Props> = () => {
                step1[key] && `| ${step1[key]} `
             ))}
             </p>
-            <ContextMenu parentRef={containerRef} />
+            <ContextMenu parentRef={containerRef} items={menuItems}/>
          </div>
       )
    }
