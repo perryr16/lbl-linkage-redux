@@ -26,14 +26,14 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 // Store 
-export const store:any = configureStore({
-   reducer: reducers
-})
 // export const store:any = configureStore({
-//    reducer: persistedReducer,
-//    devTools: process.env.NODE_ENV !== 'production',
-//    middleware: [thunk]
+//    reducer: reducers
 // })
+export const store:any = configureStore({
+   reducer: persistedReducer,
+   devTools: process.env.NODE_ENV !== 'production',
+   middleware: [thunk]
+})
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
