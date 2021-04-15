@@ -5,10 +5,12 @@ import {stepRef} from '../../constants/index'
 
 interface Props {
   handleStep: any;
+  // containerRef: any
 }
 
 export const SidebarStep4: React.FC<Props> = (props) => {
   const {handleStep} = props;
+  // const {handleStep, containerRef} = props;
   const containerRef = useRef(null);
 
   const menuItems = [

@@ -5,10 +5,12 @@ import {ContextMenu} from '../../components/index'
 
 interface Props {
   handleStep:any
+  // containerRef: any
 }
 
 export const SidebarStep6: React.FC<Props> = (props) => {
   const {handleStep} = props;
+  // const {handleStep, containerRef} = props;
   const containerRef = useRef(null);
 
   const menuItems = [

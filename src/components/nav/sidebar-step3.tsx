@@ -1,18 +1,20 @@
 import React, {useRef} from 'react';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom'
-import {ContextMenu} from '../../components/index'
+import {ContextMenu2} from '../../components/index'
 import {stepRef, systems} from '../../constants/index'
 import {selectStep3} from '../../features/index'
 
 
 interface Props {
   handleStep: any;
+  // containerRef: any
 }
 
 export const SidebarStep3: React.FC<Props> = (props) => {
-  const containerRef = useRef(null);
+  // const {handleStep, containerRef} = props;
   const {handleStep} = props;
+  const containerRef = useRef(null);
   const step3 = useSelector(selectStep3)
 
   const menuItems = [
@@ -31,7 +33,7 @@ export const SidebarStep3: React.FC<Props> = (props) => {
           {mapStep3Systems(step3, systemType)}
         </>
       ))}
-      <ContextMenu parentRef={containerRef} items={menuItems} />
+      <ContextMenu2 outerRef={containerRef} items={menuItems} />
     </div>
   );
 }

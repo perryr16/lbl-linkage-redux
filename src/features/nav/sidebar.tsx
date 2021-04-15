@@ -1,8 +1,6 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
-import {selectStep, selectStep2, selectStep3} from '../index'
-import {stepRef} from '../../constants/index';
+import {selectStep} from '../index'
 import {SidebarStep1, SidebarStep2, SidebarStep3, SidebarStep4, SidebarStep5, SidebarStep6} from '../../components/index'
 import {setStep} from '../steps/step-slice'
 
@@ -12,6 +10,7 @@ interface Props {
 }
 
 export const Sidebar: React.FC<Props> = () => {
+   const containerRef = useRef(null)
    const dispatch = useDispatch()
    const address = "1255 Flint Street, Denver, CO"
    const currentStep = useSelector(selectStep)
@@ -23,7 +22,8 @@ export const Sidebar: React.FC<Props> = () => {
    }
 
    return (
-      <div className='sidebar'>
+      <div className='sidebar' ref={containerRef}>
+      {/* <div className='sidebar' ref={containerRef}> */}
          <div className='address pad-30'>
             <p className='under-gray'>{address}</p>
          </div>
