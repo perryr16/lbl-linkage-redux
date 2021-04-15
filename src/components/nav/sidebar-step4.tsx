@@ -5,13 +5,11 @@ import {stepRef} from '../../constants/index'
 
 interface Props {
   handleStep: any;
-  // containerRef: any
 }
 
 export const SidebarStep4: React.FC<Props> = (props) => {
   const {handleStep} = props;
-  // const {handleStep, containerRef} = props;
-  const containerRef = useRef(null);
+  const outerRef = useRef(null);
 
   const menuItems = [
     {text: 'Alert 4', onClick: () => {alert('Step 4')}},
@@ -20,10 +18,10 @@ export const SidebarStep4: React.FC<Props> = (props) => {
 ]
 
   return (
-    <div className='proj-details' ref={containerRef}>
+    <div className='proj-details' ref={outerRef}>
        <Link to={`/step4`} className='btn-edit-step' onClick={() => handleStep(4)}>EDIT</Link>
        <p className='bold'>4: {stepRef[4]}</p>
-       <ContextMenu parentRef={containerRef} items={menuItems} />
+       <ContextMenu outerRef={outerRef} items={menuItems} />
     </div>
  );
 }

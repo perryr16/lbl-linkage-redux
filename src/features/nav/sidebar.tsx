@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const Sidebar: React.FC<Props> = () => {
-   const containerRef = useRef(null)
+   const outerRef = useRef(null)
    const dispatch = useDispatch()
    const address = "1255 Flint Street, Denver, CO"
    const currentStep = useSelector(selectStep)
@@ -22,7 +22,7 @@ export const Sidebar: React.FC<Props> = () => {
    }
 
    return (
-      <div className='sidebar' ref={containerRef}>
+      <div className='sidebar' ref={outerRef}>
       {/* <div className='sidebar' ref={containerRef}> */}
          <div className='address pad-30'>
             <p className='under-gray'>{address}</p>
@@ -35,7 +35,6 @@ export const Sidebar: React.FC<Props> = () => {
          {currentStep.step > 3 && <SidebarStep3 handleStep={handleStep} />}
          {currentStep.step > 4 && <SidebarStep4 handleStep={handleStep} />}
          {currentStep.step > 5 && <SidebarStep5 handleStep={handleStep} />}
-         {currentStep.step > 6 && <SidebarStep6 handleStep={handleStep} />}
       </div>
    );
 }

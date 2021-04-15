@@ -1,53 +1,28 @@
-import React, { useEffect, useState } from 'react';
-
-
+import React from 'react';
+import {useContextMenu} from '../../hooks/use-context-menu'
 
 interface Props {
-  parentRef:any;
   items: any;
+  outerRef:any;
 }
 
 export const ContextMenu: React.FC<Props> = (props) => {
-  const {parentRef, items} = props
-  const [visible, setVisible] = useState(false);
-  const [x, setX] = useState(0);
-  const [y, setY] = useState(0);
-
-
-  useEffect(() => {
-    const parent = parentRef.current;
-    if(!parent) {
-      return;
-    }
-
-    const showMenu = (e:any) => {
-      e.preventDefault();
-      setVisible(true);
-      setX(e.clientX)
-      setY(e.clientY)
-    };
-
-    const closeMenu = () => {
-      setVisible(false)
-    }
-
-    parent.addEventListener('contextmenu', showMenu);
-    window.addEventListener('click', closeMenu)
-
-    return function cleanup() {
-      parent.removeEventListener('contextmenu', showMenu);
-      window.removeEventListener('click', closeMenu);
-    }
-  })
+  const {items, outerRef} = props;
+  const {x, y, menu} = useContextMenu(outerRef)
 
   const style = {
     top: y,
     left: x,
   }
 
-  return (
-    visible ? (    
-    <div className='context-menu' style={style}>
+  if (menu) {
+    return (
+      // <ul className="context-menu" style={{ top: y, left: x }}>
+      //   <li className='context-menu-item'>Item1</li>
+      //   <li className='context-menu-item'>Item2</li>
+      //   <li className='context-menu-item'>Item3</li>
+      // </ul>
+      <div className='context-menu' style={style}>
       {items.map((item:any, index:number) => {
         return (
           <div key={index} onClick={item.onClick} className='context-menu-item'>
@@ -55,7 +30,8 @@ export const ContextMenu: React.FC<Props> = (props) => {
           </div>
         )
       })}
-    </div>) : null
-
-  );
-}
+    </div>
+    );
+  }
+  return <></>;
+};

@@ -1,19 +1,16 @@
 import React, {useRef} from 'react';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {ContextMenu, ContextMenu2} from '../../components/index'
+import {ContextMenu} from '../../components/index'
 import {stepRef} from '../../constants/index';
 import {selectStep1} from '../../features/index'
 
 interface Props {
   handleStep: any;
-  // containerRef: any;
 }
 
 export const SidebarStep1: React.FC<Props> = (props) => {
   const {handleStep} = props;
-  // const {handleStep, containerRef} = props;
-  const containerRef = useRef(null);
   const outerRef = useRef(null);
   const step1 = useSelector(selectStep1);
 
@@ -33,8 +30,7 @@ export const SidebarStep1: React.FC<Props> = (props) => {
             step1[key] && `| ${step1[key]} `
          ))}
          </p>
-         {/* <ContextMenu parentRef={containerRef} items={menuItems1}/> */}
-         <ContextMenu2 outerRef={outerRef} items={menuItems1}/>
+         <ContextMenu outerRef={outerRef} items={menuItems1}/>
       </div>
    )
 }

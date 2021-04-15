@@ -1,17 +1,13 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {stepRef} from '../../constants/index';
-import {ContextMenu} from '../../components/index'
 
 interface Props {
   handleStep:any
-  // containerRef: any
 }
 
 export const SidebarStep6: React.FC<Props> = (props) => {
   const {handleStep} = props;
-  // const {handleStep, containerRef} = props;
-  const containerRef = useRef(null);
 
   const menuItems = [
     {text: 'Alert 6', onClick: () => {alert('Step 6')}},
@@ -20,10 +16,9 @@ export const SidebarStep6: React.FC<Props> = (props) => {
   ]
 
   return (
-    <div className='proj-details' ref={containerRef}>
+    <div className='proj-details'>
       <Link to={`/step6`} className='btn-edit-step' onClick={handleStep(6)}>EDIT</Link>
       <p className='bold'>6: {stepRef[6]}</p>
-      <ContextMenu parentRef={containerRef} items={menuItems} />
     </div>
   );
 }
