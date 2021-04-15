@@ -20,11 +20,13 @@ export const NavBar: React.FC = () => {
   useEffect(() => {
 
   }, [currentStep])
+
   const changeStep = (change:number):any => {
     let newStep = stepFix(currentStep.step + change)
-    return () => {
-      return dispatch<any>(setStep(newStep))
-    }
+    console.log('change:', change)
+    console.log('newStep:', newStep)
+    dispatch(setStep(newStep))
+
   }
 
   const newStep = (change:number) => {
@@ -40,8 +42,8 @@ export const NavBar: React.FC = () => {
         <p className='download-progress'> Download My Progress</p>
       </div>
       <div className='nav-btns'>
-        <Link className='nav-btn nav-next bold' to={`/step${newStep(1)}`} onClick={changeStep(+1)}>NEXT STEP</Link>
-        <Link className='nav-btn nav-back bold' to={`/step${newStep(-1)}`} onClick={changeStep(-1)}>BACK </Link>
+        <Link className='nav-btn nav-next bold' to={`/step${newStep(1)}`} onClick={() => changeStep(1)}>NEXT STEP</Link>
+        <Link className='nav-btn nav-back bold' to={`/step${newStep(-1)}`} onClick={() => changeStep(-1)}>BACK </Link>
       </div>
 
       <p className='txt-20 bold pad-l-40 pad-t-20'>{stepPrompts[currentStep.step]}</p>

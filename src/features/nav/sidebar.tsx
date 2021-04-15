@@ -16,16 +16,11 @@ export const Sidebar: React.FC<Props> = () => {
    let currentStep = useSelector(selectStep)
 
    const handleStep = (step:number):any => {
-      console.log('step:', step)
-      console.log('currentstep:', currentStep.step)
-      dispatch<any>(setStep(step))
-      // if (step!= currentStep.step) {
-      //    dispatch(setStep(step))
-      // }
-      // return () => {
-      //    console.log('here')
-      //    return dispatch<any>(setStep(step))
-      //  }
+
+      // dispatch<any>(setStep(step))
+      return() => {
+         return dispatch(setStep(step))
+      }
    }
    
 

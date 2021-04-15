@@ -19,7 +19,7 @@ export const SidebarStep3: React.FC<Props> = (props) => {
   const dispatch = useDispatch()
   let step3 = useSelector(selectStep3)
   // let step2 = useSelector(selectStep2)
-  console.log('step3 sidebar',step3)
+  // console.log('step3 sidebar',step3)
 
   useEffect(() => {
     dispatch(resetStep3('na'))

@@ -12,8 +12,8 @@ export const Step3Card: React.FC = () => {
    // let step3 = useSelector(selectStep3)
 
    useEffect(() => {
-      console.log('initial render')
-      console.log('step2:', step2)
+      // console.log('initial render')
+      // console.log('step2:', step2)
       dispatch(resetStep3('na'))
    },[])
 

@@ -35,8 +35,8 @@ export const {addSystemType, addSystemId, addSystemKeyValue, removeSystemTypeByI
 export const step3Reducer = step3Slice.reducer;
 
 // Check the store
-console.log('step3Slice:', step3Slice)
-console.log('name:', step3Slice.name)
-console.log('actions:', step3Slice.actions)
-console.log('resetStep3:', step3Slice.actions.resetStep3)
-console.log('reducer:', step3Slice.reducer)
+// console.log('step3Slice:', step3Slice)
+// console.log('name:', step3Slice.name)
+// console.log('actions:', step3Slice.actions)
+// console.log('resetStep3:', step3Slice.actions.resetStep3)
+// console.log('reducer:', step3Slice.reducer)
