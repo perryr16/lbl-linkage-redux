@@ -19,14 +19,14 @@ export const SidebarStep2: React.FC<Props> = (props) => {
 
   const menuItems2 = [
     {text: 'Alert 2', onClick: () => alert('Step 2'),},
-    {text:  <Link to={`/step2`} className='context-menu-item-link' onClick={() =>handleStep(2)}>Edit Step 2</Link>,
+    {text:  <Link to={`/step2`} className='context-menu-item-link' onClick={handleStep(2)}>Edit Step 2</Link>,
     onClick: null},
  ]
 
 
   return (
     <div className='proj-details' ref={outerRef}>
-       <Link to={`/step2`} className='btn-edit-step' onClick={() => handleStep(2)}>EDIT</Link>
+       <Link to={`/step2`} className='btn-edit-step' onClick={handleStep(2)}>EDIT</Link>
        <p className='bold'>2: {stepRef[2]}</p>
        {step2.map((system:any) => (
           <p>{systems.filter(sys => sys.type === system.systemType)[0].iconDetail} {system.systemType} </p>

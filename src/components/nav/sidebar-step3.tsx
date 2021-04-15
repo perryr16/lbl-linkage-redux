@@ -29,13 +29,13 @@ export const SidebarStep3: React.FC<Props> = (props) => {
 
   const menuItems = [
     {text: 'Alert 3', onClick: () => {alert('Step 3')}},
-    {text:  <Link to={`/step3`} className='context-menu-item-link' onClick={()=>handleStep(3)}>Edit Step 3</Link>,
+    {text:  <Link to={`/step3`} className='context-menu-item-link' onClick={handleStep(3)}>Edit Step 3</Link>,
     onClick: null},
   ]
   
   return (
     <div className='proj-details' ref={outerRef}>
-      <Link to={`/step3`} className='btn-edit-step' onClick={() => handleStep(3)}>EDIT</Link>
+      <Link to={`/step3`} className='btn-edit-step' onClick={handleStep(3)}>EDIT</Link>
       <p className='bold'>3: {stepRef[3]}</p>
       {Object.keys(step3).map((systemType:any) => (
         <>
