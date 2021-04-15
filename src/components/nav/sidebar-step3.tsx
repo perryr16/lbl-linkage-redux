@@ -1,9 +1,11 @@
-import React, {useRef} from 'react';
-import {useSelector} from 'react-redux';
+import React, {useEffect, useRef} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom'
 import {ContextMenu} from '../../components/index'
 import {stepRef, systems} from '../../constants/index'
 import {selectStep3} from '../../features/index'
+// import {selectStep2} from '../../features/index'
+import { resetStep3 } from '../../features/steps/step3-slice';
 
 
 interface Props {
@@ -14,11 +16,20 @@ interface Props {
 export const SidebarStep3: React.FC<Props> = (props) => {
   const {handleStep} = props;
   const outerRef = useRef(null)
-  const step3 = useSelector(selectStep3)
+  const dispatch = useDispatch()
+  let step3 = useSelector(selectStep3)
+  // let step2 = useSelector(selectStep2)
+  console.log('step3 sidebar',step3)
+
+  useEffect(() => {
+    dispatch(resetStep3('na'))
+  })
+
+
 
   const menuItems = [
     {text: 'Alert 3', onClick: () => {alert('Step 3')}},
-    {text:  <Link to={`/step3`} className='context-menu-item-link' onClick={handleStep(3)}>Edit Step 3</Link>,
+    {text:  <Link to={`/step3`} className='context-menu-item-link' onClick={()=>handleStep(3)}>Edit Step 3</Link>,
     onClick: null},
   ]
   
@@ -58,7 +69,7 @@ const step3Qty = (system:any) => {
 }
 const step3Icon = (systemType:any) => {
   return (
-    systems.filter(system => system.type == systemType)[0].iconDetail
+    systems.filter(system => system.type === systemType)[0].iconDetail
     )
 }
 const step3Inputs = (system:any) => {

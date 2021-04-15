@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Col, Row} from 'react-bootstrap';
 import {SystemDetailHeader, SystemDetailInputs, SystemDetailNotes} from '../../components/index'
-import {addSystemKeyValue, removeSystemTypeById, removeSystemKey, selectStep3} from '../steps/step3-slice';
+import {addSystemKeyValue, removeSystemKey, selectStep3} from '../steps/step3-slice';
 import {systemsInputs} from '../../constants/systems'
 
 interface Props {
@@ -16,7 +15,7 @@ export const SystemDetailCard: React.FC<Props> = (props) => {
   const {systemType, systemId, handleRemoveSystem} = props;
   const dispatch = useDispatch();
   const step3 = useSelector(selectStep3)
-  const inputs = systemsInputs.filter(sys => sys.type == systemType)[0].inputs
+  const inputs = systemsInputs.filter(sys => sys.type === systemType)[0].inputs
 
   const handleChange = (e:any) => {
     const payload = {systemId: systemId, key: e.target.id , value: e.target.value, systemType: systemType}
@@ -29,9 +28,9 @@ export const SystemDetailCard: React.FC<Props> = (props) => {
   }
 
   const deleteNote = () => {
-    const notesExist:any = step3[systemType].filter((system:any) => system.id == systemId)[0].systemNotes
+    const notesExist:any = step3[systemType].filter((system:any) => system.id === systemId)[0].systemNotes
     if (notesExist) {
-      const index = step3[systemType].indexOf(step3[systemType].filter((system:any) => system.id == systemId)[0])
+      const index = step3[systemType].indexOf(step3[systemType].filter((system:any) => system.id === systemId)[0])
       dispatch(removeSystemKey({systemType: systemType, index: index, key: 'systemNotes'}))
     }
   }

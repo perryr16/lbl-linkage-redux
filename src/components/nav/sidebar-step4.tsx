@@ -13,7 +13,7 @@ export const SidebarStep4: React.FC<Props> = (props) => {
 
   const menuItems = [
     {text: 'Alert 4', onClick: () => {alert('Step 4')}},
-    {text:  <Link to={`/step4`} className='context-menu-item-link' onClick={handleStep(4)}>Edit Step 4</Link>,
+    {text:  <Link to={`/step4`} className='context-menu-item-link' onClick={()=>handleStep(4)}>Edit Step 4</Link>,
     onClick: null},
 ]
 

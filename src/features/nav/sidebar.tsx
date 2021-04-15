@@ -1,7 +1,7 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectStep} from '../index'
-import {SidebarStep1, SidebarStep2, SidebarStep3, SidebarStep4, SidebarStep5, SidebarStep6} from '../../components/index'
+import {SidebarStep1, SidebarStep2, SidebarStep3, SidebarStep4, SidebarStep5} from '../../components/index'
 import {setStep} from '../steps/step-slice'
 
 
@@ -16,16 +16,17 @@ export const Sidebar: React.FC<Props> = () => {
    let currentStep = useSelector(selectStep)
 
    const handleStep = (step:number):any => {
-      // return () => {
-      //    return dispatch(setStep(step))
+      console.log('step:', step)
+      console.log('currentstep:', currentStep.step)
+      dispatch<any>(setStep(step))
+      // if (step!= currentStep.step) {
+      //    dispatch(setStep(step))
       // }
-      return () => {
-         return dispatch<any>(setStep(step))
-       }
-      // return dispatch(setStep(step))
-
+      // return () => {
+      //    console.log('here')
+      //    return dispatch<any>(setStep(step))
+      //  }
    }
-   console.log('current step:', currentStep)
    
 
    return (

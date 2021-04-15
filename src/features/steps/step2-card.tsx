@@ -17,7 +17,7 @@ export const Step2Card: React.FC<Props> = () => {
 
    const handleChange = (e:any) => {
       const icon = systems.filter(system => (
-         system.type == e.target.value
+         system.type === e.target.value
       ))[0].iconDetail
       const system = {systemType: e.target.value, icon: icon}
       let existing = step2.filter((system:any) => system.systemType === e.target.value)

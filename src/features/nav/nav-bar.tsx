@@ -59,5 +59,3 @@ const stepPrompts:any = {
   5: "Add your non-system equipment",
 }
 
-{/* <button onClick={decrementStep}>-</button>
-<button onClick={incrementStep}>+</button> */}

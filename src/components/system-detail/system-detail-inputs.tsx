@@ -26,8 +26,8 @@ export const SystemDetailInputs: React.FC<Props> = (props) => {
           <label htmlFor={key} className='txt-15 bold float-l'>{key}</label>
           <select className="form-control" id={key} onChange={handleChange} defaultValue={'DEFAULT'}>
           <option value="DEFAULT" disabled>Select One</option>
-          {inputs[key].map((input:string|number) => (
-            <option>{input}</option>
+          {inputs[key].map((input:string|number, index:number) => (
+            <option key={index}>{input}</option>
           ))}
           </select>
         </div>

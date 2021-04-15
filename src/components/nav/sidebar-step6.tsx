@@ -9,11 +9,11 @@ interface Props {
 export const SidebarStep6: React.FC<Props> = (props) => {
   const {handleStep} = props;
 
-  const menuItems = [
-    {text: 'Alert 6', onClick: () => {alert('Step 6')}},
-    {text:  <Link to={`/step6`} className='context-menu-item-link' onClick={handleStep(6)}>Edit Step 6</Link>,
-    onClick: null},
-  ]
+  // const menuItems = [
+  //   {text: 'Alert 6', onClick: () => {alert('Step 6')}},
+  //   {text:  <Link to={`/step6`} className='context-menu-item-link' onClick={()=>handleStep(6)}>Edit Step 6</Link>,
+  //   onClick: null},
+  // ]
 
   return (
     <div className='proj-details'>

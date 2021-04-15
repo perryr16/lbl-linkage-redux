@@ -14,7 +14,7 @@ export const SidebarStep5: React.FC<Props> = (props) => {
 
   const menuItems = [
     {text: 'Alert 5', onClick: () => {alert('Step 5')}},
-    {text:  <Link to={`/step5`} className='context-menu-item-link' onClick={handleStep(5)}>Edit Step 5</Link>,
+    {text:  <Link to={`/step5`} className='context-menu-item-link' onClick={()=>handleStep(5)}>Edit Step 5</Link>,
     onClick: null},
   ]
 
