@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom'
 import {selectStep, setStep} from '../steps/step-slice'
@@ -17,6 +17,9 @@ export const NavBar: React.FC = () => {
   //   dispatch<any>(decrement())
   // }
 
+  useEffect(() => {
+
+  }, [currentStep])
   const changeStep = (change:number):any => {
     let newStep = stepFix(currentStep.step + change)
     return () => {

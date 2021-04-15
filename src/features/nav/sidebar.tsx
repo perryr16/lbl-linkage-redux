@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectStep} from '../index'
 import {SidebarStep1, SidebarStep2, SidebarStep3, SidebarStep4, SidebarStep5, SidebarStep6} from '../../components/index'
@@ -13,13 +13,20 @@ export const Sidebar: React.FC<Props> = () => {
    const outerRef = useRef(null)
    const dispatch = useDispatch()
    const address = "1255 Flint Street, Denver, CO"
-   const currentStep = useSelector(selectStep)
+   let currentStep = useSelector(selectStep)
 
    const handleStep = (step:number):any => {
+      // return () => {
+      //    return dispatch(setStep(step))
+      // }
       return () => {
-         return dispatch(setStep(step))
-      }
+         return dispatch<any>(setStep(step))
+       }
+      // return dispatch(setStep(step))
+
    }
+   console.log('current step:', currentStep)
+   
 
    return (
       <div className='sidebar' ref={outerRef}>

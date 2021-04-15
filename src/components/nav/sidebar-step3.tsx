@@ -44,7 +44,6 @@ const step3SystemType = (systemType:any) => {
   )
 }
 const mapStep3Systems = (step3:any, systemType:any) => {
-  console.log('step3Systems:', step3[systemType])
   return (
       step3[systemType].map((system:any) => (
         <p className='indent bold txt-15'>{step3Icon(systemType)} {step3Qty(system)} {step3Name(system)} {step3Inputs(system)}</p>
@@ -52,11 +51,9 @@ const mapStep3Systems = (step3:any, systemType:any) => {
   )
 }
 const step3Name = (system:any) => {
-  console.log('step3Name:', system.systemName)
   return system.systemName && system.systemName
 }
 const step3Qty = (system:any) => {
-  console.log('step3Qty')
   return system.qty && `(${system.qty})`
 }
 const step3Icon = (systemType:any) => {

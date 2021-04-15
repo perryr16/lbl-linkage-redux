@@ -17,7 +17,7 @@ export const Step3Card: React.FC = () => {
       step2.map((system:any) => (
          setupStep3(system)
       ))
-   }, [])
+   })
 
    const setupStep3 = (system:any) => {
          dispatch(addSystemType(system.systemType))
