@@ -5,6 +5,7 @@ import {systems} from '../../constants/systems';
 import {Row} from 'react-bootstrap';
 import {System} from '../../interfaces';
 import {addSystem, removeSystem, selectStep2} from './step2-slice';
+import { resetStep3 } from './step3-slice';
 interface Props {
 }
 
@@ -16,7 +17,7 @@ export const Step2Card: React.FC<Props> = () => {
    const step2 = useSelector(selectStep2)
 
    const handleChange = (e:any) => {
-      const icon = systems.filter(system => (
+      let icon = systems.filter(system => (
          system.type === e.target.value
       ))[0].iconDetail
       const system = {systemType: e.target.value, icon: icon}
@@ -26,6 +27,7 @@ export const Step2Card: React.FC<Props> = () => {
 
    const handleRemoveSystem = (system:any) => {
       dispatch<any>(removeSystem(system))
+      dispatch<any>(resetStep3())
    } 
    const handleAddSystem = (system:any) => {
       dispatch<any>(addSystem(system))

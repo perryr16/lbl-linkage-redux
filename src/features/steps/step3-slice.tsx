@@ -8,8 +8,8 @@ const step3Slice = createSlice({
   name: 'step3',
   initialState,
   reducers: {
-    resetStep3: (state, {payload}) => {
-      state = initialState;
+    resetStep3: (state) => {
+      for (var key in state) delete state[key];
     },
     addSystemType: (state, {payload}) => {
       state[payload] = []
@@ -33,10 +33,3 @@ const step3Slice = createSlice({
 export const selectStep3 = (state: RootState) => state.step3;
 export const {addSystemType, addSystemId, addSystemKeyValue, removeSystemTypeById, removeSystemKey, resetStep3} = step3Slice.actions;
 export const step3Reducer = step3Slice.reducer;
-
-// Check the store
-// console.log('step3Slice:', step3Slice)
-// console.log('name:', step3Slice.name)
-// console.log('actions:', step3Slice.actions)
-// console.log('resetStep3:', step3Slice.actions.resetStep3)
-// console.log('reducer:', step3Slice.reducer)

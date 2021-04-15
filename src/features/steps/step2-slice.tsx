@@ -18,12 +18,9 @@ const step2Slice = createSlice({
     removeSystem: (state, {payload}) => {
       return state.filter(system => system.systemType !== payload.systemType)
     },
-    resetStep2: (state, {payload}) => {
-      state = initialState
-    }
    }
 })
 
 export const selectStep2 = (state: RootState) => state.step2;
-export const {addSystem, removeSystem, resetStep2} = step2Slice.actions;
+export const {addSystem, removeSystem} = step2Slice.actions;
 export const step2Reducer = step2Slice.reducer;

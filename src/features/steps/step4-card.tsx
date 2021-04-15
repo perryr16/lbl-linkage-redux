@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react';
-import {useDispatch} from 'react-redux'
-import {resetStep2} from './step2-slice'
+import React from 'react';
 
 interface Props {
 
 }
 
 export const Step4Card: React.FC<Props> = () => {
-   const dispatch = useDispatch();
-   dispatch(resetStep2('na'))
+
 
    return (
       <div className='step-card'>

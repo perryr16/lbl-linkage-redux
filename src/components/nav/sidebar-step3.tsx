@@ -4,13 +4,11 @@ import {Link} from 'react-router-dom'
 import {ContextMenu} from '../../components/index'
 import {stepRef, systems} from '../../constants/index'
 import {selectStep3} from '../../features/index'
-// import {selectStep2} from '../../features/index'
 import { resetStep3 } from '../../features/steps/step3-slice';
 
 
 interface Props {
   handleStep: any;
-  // outerRef: any
 }
 
 export const SidebarStep3: React.FC<Props> = (props) => {
@@ -18,13 +16,11 @@ export const SidebarStep3: React.FC<Props> = (props) => {
   const outerRef = useRef(null)
   const dispatch = useDispatch()
   let step3 = useSelector(selectStep3)
-  // let step2 = useSelector(selectStep2)
-  // console.log('step3 sidebar',step3)
 
-  useEffect(() => {
-    dispatch(resetStep3('na'))
-  })
 
+  const handleResetStep3 = ():void => {
+    dispatch(resetStep3())
+  }
 
 
   const menuItems = [
@@ -36,6 +32,7 @@ export const SidebarStep3: React.FC<Props> = (props) => {
   return (
     <div className='proj-details' ref={outerRef}>
       <Link to={`/step3`} className='btn-edit-step' onClick={handleStep(3)}>EDIT</Link>
+      <button type='button' onClick={() => handleResetStep3()}>RESET</button>
       <p className='bold'>3: {stepRef[3]}</p>
       {Object.keys(step3).map((systemType:any) => (
         <>
@@ -48,10 +45,11 @@ export const SidebarStep3: React.FC<Props> = (props) => {
   );
 }
 
+// Helpers //
 
 const step3SystemType = (systemType:any) => {
   return (
-     <p className='bold side-sys-type gray'>{systemType}</p>
+     <p key= {'1'} className='bold side-sys-type gray'>{systemType}</p>
   )
 }
 const mapStep3Systems = (step3:any, systemType:any) => {
