@@ -1,4 +1,3 @@
-import {ContextMenuOld} from './context-menu/context-menu-old'
 import {ContextMenu} from './context-menu/context-menu'
 import {SidebarStep1} from './nav/sidebar-step1'
 import {SidebarStep2} from './nav/sidebar-step2'
@@ -11,7 +10,6 @@ import {SystemDetailInputs} from './system-detail/system-detail-inputs'
 import {SystemDetailNotes} from './system-detail/system-detail-notes'
 
 export {
-  ContextMenuOld,
   ContextMenu,
   SidebarStep1,
   SidebarStep2,
