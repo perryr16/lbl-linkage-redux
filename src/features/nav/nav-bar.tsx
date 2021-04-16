@@ -32,9 +32,9 @@ export const NavBar: React.FC = () => {
 
   
   return (
-    <div className='nav-bar'>
+    <div data-testid='nav-bar' className='nav-bar'>
       <div className='under-blue pad-l-20 pad-t-10' >
-        <p className='txt-15 bold line-h'>STEP {currentStep.step}/6 </p>
+        <p data-testid="step-name" className='txt-15 bold line-h'>STEP {currentStep.step}/6 </p>
         <p className='txt-25 bold gray line-h pad-b-10'>{currentStep.title}</p>
         <p className='download-progress'> Download My Progress</p>
       </div>
