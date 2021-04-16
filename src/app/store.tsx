@@ -11,7 +11,7 @@ import {step2Reducer} from '../features/steps/step2-slice';
 import {step3Reducer} from '../features/steps/step3-slice';
 
 
-const reducers = combineReducers({
+export const reducers = combineReducers({
    step: stepReducer,
    step1: step1Reducer,
    step2: step2Reducer,

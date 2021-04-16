@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="nav-bar"
+  >
+    <div
+      class="under-blue pad-l-20 pad-t-10"
+    >
+      <p
+        class="txt-15 bold line-h"
+      >
+        STEP 1/6 
+      </p>
+      <p
+        class="txt-25 bold gray line-h pad-b-10"
+      >
+        Project Specifications
+      </p>
+      <p
+        class="download-progress"
+      >
+         Download My Progress
+      </p>
+    </div>
+    <div
+      class="nav-btns"
+    >
+      <a
+        class="nav-btn nav-next bold"
+        href="/step2"
+      >
+        NEXT STEP
+      </a>
+      <a
+        class="nav-btn nav-back bold"
+        href="/step6"
+      >
+        BACK 
+      </a>
+    </div>
+    <p
+      class="txt-20 bold pad-l-40 pad-t-20"
+    >
+      Tell us about your project and it's energy standards:
+    </p>
+  </div>
+</DocumentFragment>
+`;
