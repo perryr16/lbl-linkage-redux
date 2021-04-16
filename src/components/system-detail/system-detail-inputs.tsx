@@ -14,7 +14,7 @@ export const SystemDetailInputs: React.FC<Props> = (props) => {
       <Row>
         <Col xs={9}>
             <label htmlFor='systemName' className='txt-15 bold float-l'>System Name</label>
-            <input type="text" className="form-control" id="systemName" placeholder='System 1' onChange={handleChange}/>
+            <input type="text" className="form-control" id="systemName" defaultValue='System 1' onChange={handleChange}/>
         </Col>
         <Col xs={2} >
             <label htmlFor='qty' className='txt-15 bold float-l'>Quantity</label>

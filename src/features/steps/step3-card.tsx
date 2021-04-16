@@ -19,6 +19,7 @@ export const Step3Card: React.FC = () => {
    },[])
 
    const setupStep3 = (system:any) => {
+      console.log('system:',system)
       dispatch(addSystemType(system.systemType))
       dispatch(addSystemId({systemType: system.systemType, systemId:0}))
    }

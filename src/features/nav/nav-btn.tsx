@@ -13,7 +13,7 @@ export const NavBtn: React.FC<Props> = (props) => {
    return (
       <BrowserRouter>
       <div>
-         <Link to={path}>{pageName}</Link>
+         <Link data-testid='a-tag' to={path}>{pageName}</Link>
       </div>
       <Switch>
          <Route path={path}>

@@ -23,10 +23,7 @@ export const NavBar: React.FC = () => {
 
   const changeStep = (change:number):any => {
     let newStep = stepFix(currentStep.step + change)
-    console.log('change:', change)
-    console.log('newStep:', newStep)
     dispatch(setStep(newStep))
-
   }
 
   const newStep = (change:number) => {
