@@ -1,6 +1,5 @@
 import {MoreInfo} from './modals/more-info'
 import {NavBar} from './nav/nav-bar'
-import {NavBtn} from './nav/nav-btn'
 import {Sidebar} from './nav/sidebar'
 import {selectStep} from './steps/step-slice'
 import {selectStep1} from './steps/step1-slice'
@@ -21,7 +20,6 @@ import {SystemDetailCard} from './systems/system-detail-card'
 export {
    MoreInfo,
    NavBar,
-   NavBtn,
    Sidebar,
    selectStep,
    selectStep1,

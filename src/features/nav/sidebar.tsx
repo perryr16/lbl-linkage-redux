@@ -25,8 +25,7 @@ export const Sidebar: React.FC<Props> = () => {
    
 
    return (
-      <div className='sidebar' ref={outerRef}>
-      {/* <div className='sidebar' ref={containerRef}> */}
+      <div className='sidebar' data-testid='sidebar' ref={outerRef}>
          <div className='address pad-30'>
             <p className='under-gray'>{address}</p>
          </div>

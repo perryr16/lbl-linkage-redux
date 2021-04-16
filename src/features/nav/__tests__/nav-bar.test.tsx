@@ -37,15 +37,19 @@ it('has values',() => {
   expect(navBar).toHaveTextContent("Download My Progress")
 })
 
-it('can click next step', () => {
+it('can click next/back and around the corner', () => {
   const {getByTestId, getByText} = renderWithRedux(<NavBar/>)
   const navBar = getByTestId('nav-bar')
   expect(navBar).toHaveTextContent('STEP 1/6')
   fireEvent.click(getByText('NEXT STEP'))
   expect(navBar).toHaveTextContent('STEP 2/6')
   expect(navBar).toHaveTextContent("Select the systems your building will use:")
-  // expect(navBarTest).toHaveTextContent('Project Specifications')
-  // expect(navBarTest).toHaveTextContent("Tell us about your project and it's energy standards:")
-  // expect(navBarTest).toHaveTextContent("Download My Progress")
+  fireEvent.click(getByText('BACK'))
+  expect(navBar).toHaveTextContent('STEP 1/6')
+  fireEvent.click(getByText('BACK'))
+  expect(navBar).toHaveTextContent('STEP 6/6')
+  fireEvent.click(getByText('NEXT STEP'))
+  expect(navBar).toHaveTextContent('STEP 1/6')
 })
+
 
