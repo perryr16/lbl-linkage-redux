@@ -92,14 +92,33 @@ it('sidebar Edit button takes user to relavent step', () => {
   expect(sidebar).not.toHaveTextContent('3: System Details')
   expect(sidebar).not.toHaveTextContent('4: System Equipment')
 
-  
-
-
-
-
-
-
-
 })
+
+it('right click goes to relavent step', () => {
+  const {getByTestId, getByText} = renderWithRedux(<PassedComponent/>)
+  const sidebar = getByTestId('sidebar')
+
+  fireEvent.click(getByText('NEXT STEP'))
+  fireEvent.click(getByText('NEXT STEP'))
+  fireEvent.click(getByText('NEXT STEP'))
+  fireEvent.click(getByText('NEXT STEP'))
+
+  expect(sidebar).toHaveTextContent('1: Project Specifications')
+  expect(sidebar).toHaveTextContent('2: System Selections')
+  expect(sidebar).toHaveTextContent('3: System Details')
+  expect(sidebar).toHaveTextContent('4: System Equipment')
+
+  const sidebarStep2 = getByTestId('sidebar-step2')
+
+  fireEvent.contextMenu(sidebarStep2)
+  fireEvent.click(getByText('Edit Step 2'))
+
+  expect(sidebar).toHaveTextContent('1: Project Specifications')
+  expect(sidebar).not.toHaveTextContent('2: System Selections')
+  expect(sidebar).not.toHaveTextContent('3: System Details')
+  expect(sidebar).not.toHaveTextContent('4: System Equipment')
+  
+})
+
 
 
