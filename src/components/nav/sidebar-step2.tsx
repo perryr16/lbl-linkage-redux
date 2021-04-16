@@ -25,7 +25,7 @@ export const SidebarStep2: React.FC<Props> = (props) => {
 
 
   return (
-    <div className='proj-details' ref={outerRef}>
+    <div className='proj-details' ref={outerRef} data-testid='sidebar-step2'>
        <Link to={`/step2`} className='btn-edit-step' onClick={handleStep(2)}>EDIT</Link>
        <p className='bold'>2: {stepRef[2]}</p>
        {step2.map((system:any) => (

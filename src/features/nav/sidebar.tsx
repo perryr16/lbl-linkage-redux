@@ -32,11 +32,11 @@ export const Sidebar: React.FC<Props> = () => {
          <div className='proj-details-a'>
             <p className='bold '>Project Details:</p>
          </div>
-         {currentStep.step > 1 && <SidebarStep1 handleStep={handleStep} />}
-         {currentStep.step > 2 && <SidebarStep2 handleStep={handleStep} />}
-         {currentStep.step > 3 && <SidebarStep3 handleStep={handleStep} />}
-         {currentStep.step > 4 && <SidebarStep4 handleStep={handleStep} />}
-         {currentStep.step > 5 && <SidebarStep5 handleStep={handleStep} />}
+         {currentStep.step > 1 && <SidebarStep1 handleStep={handleStep}/>}
+         {currentStep.step > 2 && <SidebarStep2 handleStep={handleStep}/>}
+         {currentStep.step > 3 && <SidebarStep3 handleStep={handleStep}/>}
+         {currentStep.step > 4 && <SidebarStep4 handleStep={handleStep}/>}
+         {currentStep.step > 5 && <SidebarStep5 handleStep={handleStep}/>}
       </div>
    );
 }

@@ -22,7 +22,7 @@ export const SidebarStep1: React.FC<Props> = (props) => {
   ]
 
     return (
-      <div className='proj-details' ref={outerRef}>
+      <div className='proj-details' ref={outerRef} data-testid='sidebar-step1'>
          <Link to={`/step1`} className='btn-edit-step' onClick={handleStep(1)}>EDIT</Link>
          <p className='bold' >1: {stepRef[1]}</p>
          <p>
