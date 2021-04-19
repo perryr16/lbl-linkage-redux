@@ -3,7 +3,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom'
 import {reducers} from '../../../app/store'
-import {render, fireEvent, cleanup, within} from '@testing-library/react';
+import {render, fireEvent, cleanup, screen, queryByTestId} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {NavBar, Sidebar, StepRouter} from '../../index';
 
@@ -37,12 +37,30 @@ it('renders', () => {
 });
 
 it('sidebar displays data related to step -- forward', () => {
-  const {getByTestId, getByText} = renderWithRedux(<PassedComponent/>)
+  const {getByTestId, getByText, queryByDisplayValue, queryByTestId} = renderWithRedux(<PassedComponent/>)
   const navBar = getByTestId('nav-bar')
   const sidebar = getByTestId('sidebar')
+  const step1Card = getByTestId('step1-card')
   expect(navBar).toHaveTextContent('STEP 1/6')
   expect(sidebar).toHaveTextContent('Project Details:')
   expect(sidebar).not.toHaveTextContent('1: Project Specifications')
+  expect(step1Card).toHaveTextContent('Energy Code')
+
+
+  const energyInput:any = queryByDisplayValue('Ashrae Guideline')
+  fireEvent.change(energyInput, {target: {value: 'Ashrae Guideline 44'}})
+
+  const stateInput:any = queryByDisplayValue('State')
+  fireEvent.change(stateInput, {target: {value: 'Colorado'}})
+
+  const input4:any = queryByTestId('input4')
+  fireEvent.change(input4, {target: {value: 'Option 4'}})
+
+  fireEvent.click(getByText('NEXT STEP'))
+
+  expect(sidebar).toHaveTextContent('Ashrae Guideline 44')
+  expect(sidebar).toHaveTextContent('Colorado')
+  expect(sidebar).toHaveTextContent('Option 4')
 
 
 })

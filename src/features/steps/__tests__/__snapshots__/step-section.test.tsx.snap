@@ -74,8 +74,11 @@ exports[`renders 1`] = `
     </div>
     <div
       class="step-card"
+      data-testid="step1-card"
     >
-      <form>
+      <form
+        data-testid="form"
+      >
         <div
           class=""
         >
@@ -330,6 +333,7 @@ exports[`renders 1`] = `
             </label>
             <select
               class="form-control"
+              data-testid="input4"
               id="input4"
             >
               <option

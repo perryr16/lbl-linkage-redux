@@ -29,12 +29,14 @@ it('renders', () => {
 });
 
 it('has values',() => {
-  const {getByTestId} = renderWithRedux(<NavBar/>)
+  const {getByTestId, queryByTestId} = renderWithRedux(<NavBar/>)
   const navBar = getByTestId('nav-bar')
   expect(navBar).toHaveTextContent('STEP 1/6')
   expect(navBar).toHaveTextContent('Project Specifications')
   expect(navBar).toHaveTextContent("Tell us about your project and it's energy standards:")
   expect(navBar).toHaveTextContent("Download My Progress")
+
+  expect(queryByTestId('nav-bar')).toBeTruthy()
 })
 
 it('can click next/back and around the corner', () => {

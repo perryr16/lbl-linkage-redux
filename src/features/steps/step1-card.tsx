@@ -29,7 +29,7 @@ export const Step1Card: React.FC<Props> = () => {
 
    return (
       <div className='step-card' data-testid="step1-card">
-         <form >
+         <form data-testid='form'>
             <div className="">
                <div className='margin-15'>
                   <label htmlFor="energyCode" className='txt-15 left-10-vw'>Energy Code</label>
@@ -62,7 +62,7 @@ export const Step1Card: React.FC<Props> = () => {
                </div>
                <div className='margin-15'>
                   <label htmlFor="input4" className='txt-15 left-10-vw'>Input 4</label>
-                  <select className="form-control" id="input4" onChange={handleInput4} defaultValue={'DEFAULT'}>
+                  <select className="form-control" id="input4" onChange={handleInput4} defaultValue={'DEFAULT'} data-testid='input4'>
                      <option value="DEFAULT" disabled>Option</option>
                      <option key="4.1">Option 1</option>
                      <option key="4.2">Option 2</option>
