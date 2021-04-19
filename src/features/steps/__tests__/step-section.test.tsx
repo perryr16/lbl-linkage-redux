@@ -37,7 +37,7 @@ it('renders', () => {
 });
 
 it('sidebar displays data related to step -- forward', () => {
-  const {getByTestId, getByText, queryByDisplayValue, queryByTestId} = renderWithRedux(<PassedComponent/>)
+  const {getByTestId, getByText, queryByDisplayValue, queryByTestId, getByPlaceholderText} = renderWithRedux(<PassedComponent/>)
   const navBar = getByTestId('nav-bar')
   const sidebar = getByTestId('sidebar')
   const step1Card = getByTestId('step1-card')
@@ -56,11 +56,18 @@ it('sidebar displays data related to step -- forward', () => {
   const input4:any = queryByTestId('input4')
   fireEvent.change(input4, {target: {value: 'Option 4'}})
 
+  const input5:any = getByPlaceholderText('Input text')
+  fireEvent.change(input5, {target: {value: 'typed text'}})
+
   fireEvent.click(getByText('NEXT STEP'))
 
   expect(sidebar).toHaveTextContent('Ashrae Guideline 44')
   expect(sidebar).toHaveTextContent('Colorado')
   expect(sidebar).toHaveTextContent('Option 4')
+  expect(sidebar).toHaveTextContent('typed text')
+  expect(sidebar).not.toHaveTextContent('Option 5')
+  expect(sidebar).not.toHaveTextContent('Alaska')
+  expect(sidebar).not.toHaveTextContent('Ashrae Guideline 36')
 
 
 })
