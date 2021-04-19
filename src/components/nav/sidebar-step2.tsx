@@ -28,8 +28,8 @@ export const SidebarStep2: React.FC<Props> = (props) => {
     <div className='proj-details' ref={outerRef} data-testid='sidebar-step2'>
        <Link to={`/step2`} className='btn-edit-step' onClick={handleStep(2)}>EDIT</Link>
        <p className='bold'>2: {stepRef[2]}</p>
-       {step2.map((system:any) => (
-          <p>{systems.filter(sys => sys.type === system.systemType)[0].iconDetail} {system.systemType} </p>
+       {step2.map((system:any, i:any) => (
+          <p key={i}>{systems.filter(sys => sys.type === system.systemType)[0].iconDetail} {system.systemType} </p>
           // // <p>{system.icon} {system.systemType}</p>
        ))}
          <ContextMenu outerRef={outerRef} items={menuItems2}/>

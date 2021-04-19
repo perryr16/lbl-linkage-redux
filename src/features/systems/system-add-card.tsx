@@ -17,8 +17,8 @@ export const SystemAddCard: React.FC<Props> = (props) => {
 
   const mapSystemDetailCards = () => {
     return(
-      relaventSystems && relaventSystems.map((system:any) => (
-        <SystemDetailCard systemType={systemType} systemId={system.id} handleRemoveSystem={handleRemoveSystem}/>
+      relaventSystems && relaventSystems.map((system:any, i:any) => (
+        <SystemDetailCard systemType={systemType} systemId={system.id} handleRemoveSystem={handleRemoveSystem} key={i}/>
         ))
     )
   }

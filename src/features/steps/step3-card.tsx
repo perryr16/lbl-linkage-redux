@@ -19,15 +19,15 @@ export const Step3Card: React.FC = () => {
    },[])
 
    const setupStep3 = (system:any) => {
-      console.log('system:',system)
+      // console.log('system:',system)
       dispatch(addSystemType(system.systemType))
       dispatch(addSystemId({systemType: system.systemType, systemId:0}))
    }
 
    return (
       <div className='step-card'>
-         {step2.map((system: any) => (
-            <div className='under-blue' data-testid="step3-card"> 
+         {step2.map((system: any, i:any) => (
+            <div className='under-blue' data-testid="step3-card" key={i}> 
                <SystemAddCard 
                   systemType={system.systemType}
                />

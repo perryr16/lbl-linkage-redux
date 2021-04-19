@@ -10,7 +10,7 @@ export const SystemDetailInputs: React.FC<Props> = (props) => {
   const {handleChange, inputs} = props;
   
   return (
-    <div className='margin-15' >
+    <div className='margin-15'>
       <Row>
         <Col xs={9}>
             <label htmlFor='systemName' className='txt-15 bold float-l'>System Name</label>
@@ -21,8 +21,8 @@ export const SystemDetailInputs: React.FC<Props> = (props) => {
             <input type="number" className="form-control" id={`qty`} placeholder='0' onChange={handleChange}/>
         </Col>
       </Row>
-      {Object.keys(inputs).map(key => (
-        <div>
+      {Object.keys(inputs).map((key, i) => (
+        <div key={i}>
           <label htmlFor={key} className='txt-15 bold float-l'>{key}</label>
           <select className="form-control" id={key} onChange={handleChange} defaultValue={'DEFAULT'}>
           <option value="DEFAULT" disabled>Select One</option>

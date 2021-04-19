@@ -36,7 +36,7 @@ it('renders', () => {
   expect(asFragment()).toMatchSnapshot();
 });
 
-it('sidebar displays data related to step -- forward', () => {
+it('sidebar reflects step1 selections', () => {
   const {getByTestId, getByText, queryByDisplayValue, queryByTestId, getByPlaceholderText} = renderWithRedux(<PassedComponent/>)
   const navBar = getByTestId('nav-bar')
   const sidebar = getByTestId('sidebar')
@@ -68,7 +68,26 @@ it('sidebar displays data related to step -- forward', () => {
   expect(sidebar).not.toHaveTextContent('Option 5')
   expect(sidebar).not.toHaveTextContent('Alaska')
   expect(sidebar).not.toHaveTextContent('Ashrae Guideline 36')
+})
+
+it('sidebar reflects step2 selections', () => {
+  const {getByTestId, getByText, queryByDisplayValue, queryByTestId, getByPlaceholderText} = renderWithRedux(<PassedComponent/>)
+  const navBar = getByTestId('nav-bar')
+  const sidebar = getByTestId('sidebar')
+  fireEvent.click(getByText('NEXT STEP'))
+
+  const step2Card = getByTestId('step2-card')
+  expect(navBar).toHaveTextContent('STEP 2/6')
+  expect(step2Card).toHaveTextContent('VARIABLE AIR VOLUME')
+
+  fireEvent.click(getByText('BOILER PLANT'))
+  fireEvent.click(getByText('CHILLER PLANT'))
+
+  fireEvent.click(getByText('NEXT STEP'))
+
+  expect(sidebar).toHaveTextContent('Boiler Plant')
+  expect(sidebar).toHaveTextContent('Chiller Plant')
+  expect(sidebar).not.toHaveTextContent('Variable Air Volume')
 
 
 })
-
