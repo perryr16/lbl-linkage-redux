@@ -10,9 +10,8 @@ import {NavBar, Sidebar} from '../../index';
 
 afterEach(cleanup);
 
-const reducer = reducers
 
-const renderWithRedux = (component:any, {initialState, store=createStore(reducer, initialState)}:any = {}) => {
+const renderWithRedux = (component:any, {initialState, store=createStore(reducers, initialState)}:any = {}) => {
   return {
     ...render(
     <BrowserRouter>
@@ -44,23 +43,30 @@ it('sidebar displays data related to step -- forward', () => {
   expect(navBar).toHaveTextContent('STEP 1/6')
   expect(sidebar).toHaveTextContent('Project Details:')
   expect(sidebar).not.toHaveTextContent('1: Project Specifications')
+
   fireEvent.click(getByText('NEXT STEP'))
   expect(sidebar).toHaveTextContent('1: Project Specifications')
   expect(sidebar).not.toHaveTextContent('2: System Selections')
+
   fireEvent.click(getByText('NEXT STEP'))
   expect(sidebar).toHaveTextContent('2: System Selections')
   expect(sidebar).not.toHaveTextContent('3: System Details')
+
   fireEvent.click(getByText('NEXT STEP'))
   expect(sidebar).toHaveTextContent('3: System Details')
   expect(sidebar).not.toHaveTextContent('4: System Equipment')
+
   fireEvent.click(getByText('NEXT STEP'))
   expect(sidebar).toHaveTextContent('4: System Equipment')
   expect(sidebar).not.toHaveTextContent('5: Non-System Equipment')
+
   fireEvent.click(getByText('NEXT STEP'))
   expect(sidebar).toHaveTextContent('5: Non-System Equipment')
+
   fireEvent.click(getByText('NEXT STEP'))
   expect(sidebar).not.toHaveTextContent('1: Project Specifications')
   expect(sidebar).not.toHaveTextContent('5: Non-System Equipment')
+  
   fireEvent.click(getByText('NEXT STEP'))
   expect(sidebar).toHaveTextContent('1: Project Specifications')
 })

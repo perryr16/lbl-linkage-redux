@@ -1,0 +1,376 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="nav-bar"
+      data-testid="nav-bar"
+    >
+      <div
+        class="under-blue pad-l-20 pad-t-10"
+      >
+        <p
+          class="txt-15 bold line-h"
+          data-testid="step-name"
+        >
+          STEP 1/6 
+        </p>
+        <p
+          class="txt-25 bold gray line-h pad-b-10"
+        >
+          Project Specifications
+        </p>
+        <p
+          class="download-progress"
+        >
+           Download My Progress
+        </p>
+      </div>
+      <div
+        class="nav-btns"
+      >
+        <a
+          class="nav-btn nav-next bold"
+          href="/step2"
+        >
+          NEXT STEP
+        </a>
+        <a
+          class="nav-btn nav-back bold"
+          href="/step6"
+        >
+          BACK 
+        </a>
+      </div>
+      <p
+        class="txt-20 bold pad-l-40 pad-t-20"
+      >
+        Tell us about your project and it's energy standards:
+      </p>
+    </div>
+    <div
+      class="sidebar"
+      data-testid="sidebar"
+    >
+      <div
+        class="address pad-30"
+      >
+        <p
+          class="under-gray"
+        >
+          1255 Flint Street, Denver, CO
+        </p>
+      </div>
+      <div
+        class="proj-details-a"
+      >
+        <p
+          class="bold "
+        >
+          Project Details:
+        </p>
+      </div>
+    </div>
+    <div
+      class="step-card"
+    >
+      <form>
+        <div
+          class=""
+        >
+          <div
+            class="margin-15"
+          >
+            <label
+              class="txt-15 left-10-vw"
+              for="energyCode"
+            >
+              Energy Code
+            </label>
+            <select
+              class="form-control"
+              id="energyCode"
+            >
+              <option
+                disabled=""
+                selected=""
+                value="DEFAULT"
+              >
+                Ashrae Guideline
+              </option>
+              <option>
+                Ashrae Guideline 36
+              </option>
+              <option>
+                Ashrae Guideline 44
+              </option>
+              <option>
+                Ashrae Guideline 55
+              </option>
+              <option>
+                Ashrae Guideline 66
+              </option>
+            </select>
+          </div>
+          <div
+            class="margin-15"
+          >
+            <label
+              class="txt-15 left-10-vw"
+              for="state"
+            >
+              What State is Your Facility In?
+            </label>
+            <select
+              class="form-control"
+              id="state"
+            >
+              <option
+                disabled=""
+                selected=""
+                value="DEFAULT"
+              >
+                State
+              </option>
+              <option>
+                Alabama
+              </option>
+              <option>
+                Alaska
+              </option>
+              <option>
+                Arizona
+              </option>
+              <option>
+                Arkansas
+              </option>
+              <option>
+                California
+              </option>
+              <option>
+                Colorado
+              </option>
+              <option>
+                Connecticut
+              </option>
+              <option>
+                Delaware
+              </option>
+              <option>
+                Florida
+              </option>
+              <option>
+                Georgia
+              </option>
+              <option>
+                Hawaii
+              </option>
+              <option>
+                Idaho
+              </option>
+              <option>
+                Illinois
+              </option>
+              <option>
+                Indiana
+              </option>
+              <option>
+                Iowa
+              </option>
+              <option>
+                Kansas
+              </option>
+              <option>
+                Kentucky
+              </option>
+              <option>
+                Louisiana
+              </option>
+              <option>
+                Maine
+              </option>
+              <option>
+                Maryland
+              </option>
+              <option>
+                Massachusetts
+              </option>
+              <option>
+                Michigan
+              </option>
+              <option>
+                Minnesota
+              </option>
+              <option>
+                Mississippi
+              </option>
+              <option>
+                Missouri
+              </option>
+              <option>
+                Montana
+              </option>
+              <option>
+                Nebraska
+              </option>
+              <option>
+                Nevada
+              </option>
+              <option>
+                New Hampshire
+              </option>
+              <option>
+                New Jersey
+              </option>
+              <option>
+                New Mexico
+              </option>
+              <option>
+                New York
+              </option>
+              <option>
+                North Carolina
+              </option>
+              <option>
+                North Dakota
+              </option>
+              <option>
+                Ohio
+              </option>
+              <option>
+                Oklahoma
+              </option>
+              <option>
+                Oregon
+              </option>
+              <option>
+                Pennsylvania
+              </option>
+              <option>
+                Rhode Island
+              </option>
+              <option>
+                South Carolina
+              </option>
+              <option>
+                South Dakota
+              </option>
+              <option>
+                Tennessee
+              </option>
+              <option>
+                Texas
+              </option>
+              <option>
+                Utah
+              </option>
+              <option>
+                Vermont
+              </option>
+              <option>
+                Virginia
+              </option>
+              <option>
+                Washington
+              </option>
+              <option>
+                West Virginia
+              </option>
+              <option>
+                Wisconsin
+              </option>
+              <option>
+                Wyoming
+              </option>
+            </select>
+          </div>
+          <div
+            class="margin-15"
+          >
+            <label
+              class="txt-15 left-10-vw"
+              for="input3"
+            >
+              Input 3
+            </label>
+            <select
+              class="form-control"
+              id="input3"
+            >
+              <option
+                disabled=""
+                selected=""
+                value="DEFAULT"
+              >
+                Option
+              </option>
+              <option>
+                Option 1
+              </option>
+              <option>
+                Option 2
+              </option>
+              <option>
+                Option 3
+              </option>
+              <option>
+                Option 4
+              </option>
+            </select>
+          </div>
+          <div
+            class="margin-15"
+          >
+            <label
+              class="txt-15 left-10-vw"
+              for="input4"
+            >
+              Input 4
+            </label>
+            <select
+              class="form-control"
+              id="input4"
+            >
+              <option
+                disabled=""
+                selected=""
+                value="DEFAULT"
+              >
+                Option
+              </option>
+              <option>
+                Option 1
+              </option>
+              <option>
+                Option 2
+              </option>
+              <option>
+                Option 3
+              </option>
+              <option>
+                Option 4
+              </option>
+            </select>
+          </div>
+          <div
+            class="margin-15"
+          >
+            <label
+              class="txt-15 left-10-vw"
+              for="input5TextArea"
+            >
+              Input 5
+            </label>
+            <textarea
+              class="form-control"
+              id="input5TextArea"
+              placeholder="Input text"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;
