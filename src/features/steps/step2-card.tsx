@@ -40,7 +40,7 @@ export const Step2Card: React.FC<Props> = () => {
 
    const handleClose = () => setShow(false);
    return (
-      <div className='step-card'>
+      <div className='step-card' data-testid="step2-card">
          <Row>
             <SystemCard system={systems[0]} handleChange={handleChange} handleShow={handleShow} />
             <SystemCard system={systems[1]} handleChange={handleChange} handleShow={handleShow} />

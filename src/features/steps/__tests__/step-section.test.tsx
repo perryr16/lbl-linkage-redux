@@ -35,3 +35,15 @@ it('renders', () => {
   const {asFragment} = renderWithRedux(<PassedComponent/>)
   expect(asFragment()).toMatchSnapshot();
 });
+
+it('sidebar displays data related to step -- forward', () => {
+  const {getByTestId, getByText} = renderWithRedux(<PassedComponent/>)
+  const navBar = getByTestId('nav-bar')
+  const sidebar = getByTestId('sidebar')
+  expect(navBar).toHaveTextContent('STEP 1/6')
+  expect(sidebar).toHaveTextContent('Project Details:')
+  expect(sidebar).not.toHaveTextContent('1: Project Specifications')
+
+
+})
+

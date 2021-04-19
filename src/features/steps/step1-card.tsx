@@ -28,7 +28,7 @@ export const Step1Card: React.FC<Props> = () => {
 
 
    return (
-      <div className='step-card'>
+      <div className='step-card' data-testid="step1-card">
          <form >
             <div className="">
                <div className='margin-15'>
