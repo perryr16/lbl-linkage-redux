@@ -38,14 +38,14 @@ export const SystemCard: React.FC<Props> = (props) => {
 
 
    
-   const handleClick = (e:any) => {
+   const handleClick = () => {
       // handleStyle()
-      handleChange(e)
+      handleChange(system.type)
    }
 
     return (
       <Col>
-         <div className="sys-card" style={style.div}>
+         <div className="sys-card" style={style.div} onClick={handleClick}>
             <input className="sys-check zoom-3x" type="checkbox" value={system.type} id={system.type} onClick={handleClick} checked={checked}/>
             <label className="txt-15 bold sys-name" htmlFor={system.type} style={style.icon}>
                {system.type.toUpperCase()}
@@ -53,8 +53,8 @@ export const SystemCard: React.FC<Props> = (props) => {
             <div style={style.icon}>
                {system.icon}
             </div>
-            <button className="more-info txt-10" onClick={() => handleShow(system)} style={style.moreInfo}> More Info</button>
          </div>
+         <button className="more-info txt-10" onClick={() => handleShow(system)} style={style.moreInfo}> More Info</button>
       </Col>
     );
 }
