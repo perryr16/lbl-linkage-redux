@@ -38,18 +38,23 @@ export const Step2Card: React.FC<Props> = () => {
        setShow(true)
    };
 
+   const checked = (system:any) => {
+      const foundSystem = step2.filter((sys:any) => sys.systemType == system.type)
+      return foundSystem.length >= 1
+   }
+
    const handleClose = () => setShow(false);
    return (
       <div className='step-card' data-testid="step2-card">
          <Row>
-            <SystemCard system={systems[0]} handleChange={handleChange} handleShow={handleShow} />
-            <SystemCard system={systems[1]} handleChange={handleChange} handleShow={handleShow} />
-            <SystemCard system={systems[2]} handleChange={handleChange} handleShow={handleShow} />
+            <SystemCard system={systems[0]} handleChange={handleChange} handleShow={handleShow} checked={checked(systems[0])}/>
+            <SystemCard system={systems[1]} handleChange={handleChange} handleShow={handleShow} checked={checked(systems[1])}/>
+            <SystemCard system={systems[2]} handleChange={handleChange} handleShow={handleShow} checked={checked(systems[2])}/>
          </Row>
          <Row>
-            <SystemCard system={systems[3]} handleChange={handleChange} handleShow={handleShow} />
-            <SystemCard system={systems[4]} handleChange={handleChange} handleShow={handleShow} />
-            <SystemCard system={systems[5]} handleChange={handleChange} handleShow={handleShow} />
+            <SystemCard system={systems[3]} handleChange={handleChange} handleShow={handleShow} checked={checked(systems[3])}/>
+            <SystemCard system={systems[4]} handleChange={handleChange} handleShow={handleShow} checked={checked(systems[4])}/>
+            <SystemCard system={systems[5]} handleChange={handleChange} handleShow={handleShow} checked={checked(systems[5])}/>
          </Row>
          <MoreInfo show={show} handleClose={handleClose} system={system}/>
 

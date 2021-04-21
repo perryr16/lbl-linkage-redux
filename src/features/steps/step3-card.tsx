@@ -25,9 +25,9 @@ export const Step3Card: React.FC = () => {
    }
 
    return (
-      <div className='step-card'>
+      <div className='step-card' data-testid='step3-card'>
          {step2.map((system: any, i:any) => (
-            <div className='under-blue' data-testid="step3-card" key={i}> 
+            <div className='under-blue' key={i}> 
                <SystemAddCard 
                   systemType={system.systemType}
                />

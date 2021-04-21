@@ -3,7 +3,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom'
 import {reducers} from '../../../app/store'
-import {render, fireEvent, cleanup, screen, queryByTestId} from '@testing-library/react';
+import {render, fireEvent, cleanup, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {NavBar, Sidebar, StepRouter} from '../../index';
 
@@ -71,7 +71,7 @@ it('sidebar reflects step1 selections', () => {
 })
 
 it('sidebar reflects step2 selections', () => {
-  const {getByTestId, getByText, queryByDisplayValue, queryByTestId, getByPlaceholderText} = renderWithRedux(<PassedComponent/>)
+  const {getByTestId, getByText} = renderWithRedux(<PassedComponent/>)
   const navBar = getByTestId('nav-bar')
   const sidebar = getByTestId('sidebar')
   fireEvent.click(getByText('NEXT STEP'))
@@ -88,6 +88,22 @@ it('sidebar reflects step2 selections', () => {
   expect(sidebar).toHaveTextContent('Boiler Plant')
   expect(sidebar).toHaveTextContent('Chiller Plant')
   expect(sidebar).not.toHaveTextContent('Variable Air Volume')
+})
+
+it('sidebar reflects step3 selections', () => {
+  const {getByTestId, getByText} = renderWithRedux(<PassedComponent/>)
+  const navBar = getByTestId('nav-bar')
+  const sidebar = getByTestId('sidebar')
+
+  fireEvent.click(getByText('NEXT STEP'))
+  fireEvent.click(getByText('BOILER PLANT'))
+  fireEvent.click(getByText('CHILLER PLANT'))
+  fireEvent.click(getByText('NEXT STEP'))
+
+  const step3Card = getByTestId('step3-card')
+  expect(step3Card).toHaveTextContent('Boiler Plant')
+  expect(step3Card).toHaveTextContent('Chiller Plant')
+
 
 
 })
