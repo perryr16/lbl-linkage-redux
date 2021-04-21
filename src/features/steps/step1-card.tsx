@@ -31,17 +31,7 @@ export const Step1Card: React.FC<Props> = () => {
          input5: step1.input5 || initialInputs.input5,
       })
    },[step1])
-   // useEffect(() => {
-   //    console.log('step1', step1)
-   //    console.log('step1Inputs', step1Inputs)
-   //    setStep1Inputs({...step1Inputs, 
-   //       energyCode: step1.energyCode != '' ? step1.energyCode : initialInputs.energyCode,
-   //       location: step1.state != '' ? step1.location : initialInputs.location,
-   //       input3: step1.input3 != '' ? step1.input3 : initialInputs.input3,
-   //       input4: step1.input4 != '' ? step1.input4 : initialInputs.input4,
-   //       input5: step1.input5 != '' ? step1.input5 : initialInputs.input5,
-   //    })
-   // },[step1])
+
 
 
    const handleEnergyCode = (e:any) => {

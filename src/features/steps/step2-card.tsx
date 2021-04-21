@@ -24,14 +24,6 @@ export const Step2Card: React.FC<Props> = () => {
       let existing = step2.filter((system:any) => system.systemType === selectedSystem)
       existing.length ? handleRemoveSystem(system) : handleAddSystem(system)
    }
-   // const handleChange = (e:any) => {
-   //    let icon = systems.filter(system => (
-   //       system.type === e.target.value
-   //    ))[0].iconDetail
-   //    const system = {systemType: e.target.value, icon: icon}
-   //    let existing = step2.filter((system:any) => system.systemType === e.target.value)
-   //    existing.length ? handleRemoveSystem(system) : handleAddSystem(system)
-   // }
 
    const handleRemoveSystem = (system:any) => {
       dispatch<any>(removeSystem(system))
