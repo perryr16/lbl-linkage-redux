@@ -14,7 +14,8 @@ export const Step3Card: React.FC = () => {
 
    useEffect(() => {
       step2.map((system:any) => (
-         setupStep3(system)
+         // setupStep3(system)
+         console.log('setup step3')
       ))
    },[])
 

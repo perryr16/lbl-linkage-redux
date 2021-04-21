@@ -47,7 +47,9 @@ export const SystemDetailCard: React.FC<Props> = (props) => {
       {showNote && <SystemDetailNotes handleChange={handleChange} handleAddNote={handleAddNote}/>}
       <SystemDetailInputs 
         handleChange={handleChange}
-        inputs={inputs}
+        inputOptions={inputs}
+        systemType={systemType}
+        systemId={systemId}
       />
       
     </div>

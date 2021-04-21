@@ -21,7 +21,6 @@ export const Step1Card: React.FC<Props> = () => {
    }
    const [step1Inputs, setStep1Inputs] = useState(initialInputs)
 
-
    useEffect(() => {
       setStep1Inputs({...step1Inputs, 
          energyCode: step1.energyCode || initialInputs.energyCode,
@@ -31,8 +30,6 @@ export const Step1Card: React.FC<Props> = () => {
          input5: step1.input5 || initialInputs.input5,
       })
    },[step1])
-
-
 
    const handleEnergyCode = (e:any) => {
       dispatch<any>(setEnergyCode(e.target.value))
@@ -49,7 +46,6 @@ export const Step1Card: React.FC<Props> = () => {
    const handleInput5 = (e:any) => {
       dispatch<any>(setInput5(e.target.value))
    }
-
 
    return (
       <div className='step-card' data-testid="step1-card">
