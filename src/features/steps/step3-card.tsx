@@ -10,19 +10,14 @@ import {addSystemType, addSystemId, selectStep3} from './step3-slice'
 export const Step3Card: React.FC = () => {
    const dispatch = useDispatch()
    let step2 = useSelector(selectStep2)
+   let step3 = useSelector(selectStep3)
 
 
    useEffect(() => {
       step2.map((system:any) => (
-         // setupStep3(system)
-         console.log('setup step3')
+         step3[system.systemType] ? null : dispatch(addSystemType(system.systemType))
       ))
    },[])
-
-   const setupStep3 = (system:any) => {
-      dispatch(addSystemType(system.systemType))
-      dispatch(addSystemId({systemType: system.systemType, systemId:0}))
-   }
 
    return (
       <div className='step-card' data-testid='step3-card'>

@@ -29,9 +29,12 @@ const step1Slice = createSlice({
     setInput5: (state, {payload}) => {
       state.input5 = payload
     },
+    resetStep1: (state:any) => {
+      state = undefined
+    },
   }
 })
 
 export const selectStep1 = (state: RootState) => state.step1;
-export const {setEnergyCode, setLocation, setInput3, setInput4, setInput5} = step1Slice.actions;
+export const {setEnergyCode, setLocation, setInput3, setInput4, setInput5, resetStep1} = step1Slice.actions;
 export const step1Reducer = step1Slice.reducer;

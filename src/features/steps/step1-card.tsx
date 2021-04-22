@@ -1,8 +1,9 @@
-import React from 'react';
+import React  from 'react';
 import {states} from '../../constants/states'
 import {useDispatch, useSelector} from 'react-redux'
-import {setEnergyCode, setLocation, setInput3, setInput4, setInput5} from './step1-slice'
-import {selectStep1} from './step1-slice' 
+import {setEnergyCode, setLocation, setInput3, setInput4, setInput5, resetStep1} from './step1-slice'
+import {selectStep1} from './step1-slice'
+ 
 
 interface Props {
 
@@ -11,6 +12,8 @@ interface Props {
 export const Step1Card: React.FC<Props> = () => {
    const dispatch = useDispatch()
    const step1 = useSelector(selectStep1)
+
+
 
    const handleEnergyCode = (e:any) => {
       dispatch<any>(setEnergyCode(e.target.value))
@@ -53,8 +56,13 @@ export const Step1Card: React.FC<Props> = () => {
                </div>
                <div className='margin-15'>
                   <label htmlFor="input3" className='txt-15 left-10-vw'>Input 3</label>
-                  <select className="form-control" id="input3" onChange={handleInput3} defaultValue={'DEFAULT'}>
-                     <option value="DEFAULT" disabled>{step1.input3 || 'Option'}</option>
+                  <select 
+                     className="form-control" 
+                     id="input3" 
+                     onChange={handleInput3} 
+                     defaultValue={step1.input3}
+                     >
+                     <option disabled>Choose an Option</option>
                      <option key="3.1">Option 1</option>
                      <option key="3.2">Option 2</option>
                      <option key="3.3">Option 3</option>
@@ -63,8 +71,13 @@ export const Step1Card: React.FC<Props> = () => {
                </div>
                <div className='margin-15'>
                   <label htmlFor="input4" className='txt-15 left-10-vw'>Input 4</label>
-                  <select className="form-control" id="input4" onChange={handleInput4} defaultValue={'DEFAULT'} data-testid='input4'>
-                     <option value="DEFAULT" disabled>{step1.input4 || 'Option'}</option>
+                  <select 
+                     className="form-control" 
+                     id="input4" 
+                     onChange={handleInput4} 
+                     defaultValue={step1.input4} 
+                     data-testid='input4'>
+                     <option disabled>Choose an Option</option>
                      <option key="4.1">Option 1</option>
                      <option key="4.2">Option 2</option>
                      <option key="4.3">Option 3</option>
@@ -73,7 +86,7 @@ export const Step1Card: React.FC<Props> = () => {
                </div>
                <div className='margin-15'>
                   <label htmlFor="input5TextArea" className='txt-15 left-10-vw'>Input 5</label>
-                  <textarea className="form-control" id="input5TextArea" placeholder={step1.input5 || 'Option'}onChange={handleInput5}></textarea>
+                  <textarea className="form-control" id="input5TextArea" placeholder='Option' defaultValue={step1.input5}onChange={handleInput5}></textarea>
                </div>
             </div>
          </form>

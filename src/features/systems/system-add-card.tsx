@@ -23,8 +23,17 @@ export const SystemAddCard: React.FC<Props> = (props) => {
     )
   }
 
+  const newId = () => {
+    const x = 10
+    if (step3[systemType].length == 0 ) {return 0}
+    const idsRaw:any = step3[systemType].map((sys:any) => sys.id) 
+    const ids:any = idsRaw.filter((id:any) => typeof(id) == 'number')
+    return Math.max(...ids) + 1
+  }
+
   const handleAddSystem = () => {
-    let newSystem:any = {systemType: systemType, systemId: relaventSystems.length}
+    let newSystem:any = {systemType: systemType, systemId: newId()}
+    const y = 11;
     dispatch(addSystemId(newSystem))
   }
 

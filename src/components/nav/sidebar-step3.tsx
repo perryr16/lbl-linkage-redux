@@ -22,7 +22,6 @@ export const SidebarStep3: React.FC<Props> = (props) => {
     dispatch(resetStep3())
   }
 
-
   const menuItems = [
     {text: 'Alert 3', onClick: () => {alert('Step 3')}},
     {text:  <Link to={`/step3`} className='context-menu-item-link' onClick={handleStep(3)}>Edit Step 3</Link>,

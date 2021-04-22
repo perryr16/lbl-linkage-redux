@@ -1,9 +1,10 @@
 import React, {useRef} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {ContextMenu} from '../../components/index'
 import {stepRef} from '../../constants/index';
 import {selectStep1} from '../../features/index'
+import { resetStep1 } from '../../features/steps/step1-slice';
 
 interface Props {
   handleStep: any;
@@ -11,7 +12,9 @@ interface Props {
 
 export const SidebarStep1: React.FC<Props> = (props) => {
   const {handleStep} = props;
+  const dispatch = useDispatch();
   const outerRef = useRef(null);
+
   const step1 = useSelector(selectStep1);
 
 
@@ -21,9 +24,15 @@ export const SidebarStep1: React.FC<Props> = (props) => {
       onClick: null},
   ]
 
+  const handleResetStep1 = ():void => {
+   dispatch(resetStep1())
+ }
+
     return (
       <div className='proj-details' ref={outerRef} data-testid='sidebar-step1'>
          <Link to={`/step1`} className='btn-edit-step' onClick={handleStep(1)}>EDIT</Link>
+         <button type='button' onClick={() => handleResetStep1()}>RESET</button>
+
          <p className='bold' >1: {stepRef[1]}</p>
          <p>
          {Object.keys(step1).map(key => (
