@@ -31,7 +31,7 @@ export const SidebarStep3: React.FC<Props> = (props) => {
   return (
     <div className='proj-details' ref={outerRef} data-testid='sidebar-step3'>
       <Link to={`/step3`} className='btn-edit-step' onClick={handleStep(3)}>EDIT</Link>
-      <button type='button' onClick={() => handleResetStep3()}>RESET</button>
+      <button className='btn-edit-step' type='button' onClick={() => handleResetStep3()}>RESET</button>
       <p className='bold'>3: {stepRef[3]}</p>
       {Object.keys(step3).map((systemType:any) => (
         <>

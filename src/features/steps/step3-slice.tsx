@@ -8,9 +8,9 @@ const step3Slice = createSlice({
   name: 'step3',
   initialState,
   reducers: {
-    resetStep3: (state) => {
+    resetStep3: () => {
       // for (var key in state) delete state[key];
-      state = undefined;
+      return initialState
     },
     addSystemType: (state, {payload}) => {
       state[payload] = []

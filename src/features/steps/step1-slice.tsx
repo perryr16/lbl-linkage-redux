@@ -29,8 +29,9 @@ const step1Slice = createSlice({
     setInput5: (state, {payload}) => {
       state.input5 = payload
     },
-    resetStep1: (state:any) => {
-      state = undefined
+    resetStep1: () => {
+      // for (var key in state) state[key] = '';
+      return initialState
     },
   }
 })

@@ -24,14 +24,14 @@ export const SidebarStep1: React.FC<Props> = (props) => {
       onClick: null},
   ]
 
-  const handleResetStep1 = ():void => {
+  const handleResetStep1 = () => {
    dispatch(resetStep1())
  }
 
     return (
       <div className='proj-details' ref={outerRef} data-testid='sidebar-step1'>
          <Link to={`/step1`} className='btn-edit-step' onClick={handleStep(1)}>EDIT</Link>
-         <button type='button' onClick={() => handleResetStep1()}>RESET</button>
+         <button className='btn-edit-step' type='button' onClick={() => handleResetStep1()}>RESET</button>
 
          <p className='bold' >1: {stepRef[1]}</p>
          <p>
