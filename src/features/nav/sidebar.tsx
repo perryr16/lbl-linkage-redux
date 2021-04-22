@@ -3,6 +3,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {selectStep} from '../index'
 import {SidebarStep1, SidebarStep2, SidebarStep3, SidebarStep4, SidebarStep5} from '../../components/index'
 import {setStep} from '../steps/step-slice'
+import { resetStep1 } from '../steps/step1-slice';
+import { resetStep2 } from '../steps/step2-slice';
+import { resetStep3 } from '../steps/step3-slice';
 
 
 interface Props {
@@ -22,6 +25,13 @@ export const Sidebar: React.FC<Props> = () => {
          return dispatch(setStep(step))
       }
    }
+
+   const handleResetStore = () => {
+         dispatch(resetStep1())
+         dispatch(resetStep2())
+         dispatch(resetStep3())
+
+   }
    
 
    return (
@@ -30,7 +40,9 @@ export const Sidebar: React.FC<Props> = () => {
             <p className='under-gray'>{address}</p>
          </div>
          <div className='proj-details-a'>
+            <button className='btn-edit-step' type='button' onClick={() => handleResetStore()}>RESET STORE</button>
             <p className='bold '>Project Details:</p>
+
          </div>
          {currentStep.step > 1 && <SidebarStep1 handleStep={handleStep}/>}
          {currentStep.step > 2 && <SidebarStep2 handleStep={handleStep}/>}
