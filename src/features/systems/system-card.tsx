@@ -38,9 +38,9 @@ export const SystemCard: React.FC<Props> = (props) => {
 
 
    
-   const handleClick = () => {
-      handleChange(system.type)
-   }
+   // const handleClick = () => {
+   //    handleChange(system.type)
+   // }
 
     return (
       <Col>
