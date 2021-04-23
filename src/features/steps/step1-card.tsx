@@ -32,19 +32,14 @@ export const Step1Card: React.FC<Props> = () => {
    }
 
    const ready = () => {
-      const condition = []
-      condition.push(step1.energyCode != '')
-      condition.push(step1.location != '')
-      condition.push(step1.input3 != '')
-      condition.push(step1.input4 != '')
-      condition.push(step1.input5 != '')
-      return condition.every(el => el == true)
+      return Object.keys(step1).every(key => step1[key] != '')
    }
 
-   const inputStyle = (input:any) => {
-      return input == '' 
-         ? {background: 'rgba(226, 34, 34, 0.301)', transition: 'background 1s'}
-         : {background: 'none', transition: 'background 1s'}
+
+   const inputStyle = (step1Input:any) => {
+      return step1Input == '' 
+      ? {background: 'rgba(241, 127, 20, 0.479)', transition: 'background 1s'}
+      : {background: 'none', transition: 'background 1s'}
    }
 
    return (

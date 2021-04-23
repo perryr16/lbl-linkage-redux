@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom'
 import {selectStep, setStep} from '../steps/step-slice'
+import {selectStep1, selectStep2, selectStep3} from '../index'
 import {stepFix} from '../../helpers/step-helper'
 
 
@@ -9,6 +10,9 @@ import {stepFix} from '../../helpers/step-helper'
 export const NavBar: React.FC = () => {
   const dispatch = useDispatch()
   const currentStep = useSelector(selectStep)
+  const step1 = useSelector(selectStep1)
+  const step2 = useSelector(selectStep2)
+  const step3 = useSelector(selectStep3)
 
   const changeStep = (change:number):any => {
     let newStep = stepFix(currentStep.step + change)
@@ -19,8 +23,25 @@ export const NavBar: React.FC = () => {
     return stepFix(currentStep.step + change)
   }
 
-  const nextStep = () => {
-    changeStep(1)
+  const step1Ready = () => {
+    return {
+      ready: Object.keys(step1).every(key => step1[key] != ''),
+      message: 'Enter all required fields' 
+    }
+  }
+  const step2Ready = () => {
+    return {
+      ready: step2.length != 0, 
+      message: 'Select at least one system'
+    }
+  }
+
+  const nextStepReady:any = () => {
+    switch(currentStep.step) {
+      case 1: return step1Ready();
+      case 2: return step2Ready();
+      default: return true
+    }
   }
 
   
@@ -32,7 +53,10 @@ export const NavBar: React.FC = () => {
         <p className='download-progress'> Download My Progress</p>
       </div>
       <div className='nav-btns'>
-        <Link className='nav-btn nav-next bold' to={`/step${newStep(1)}`} onClick={nextStep}>NEXT STEP</Link>
+        {nextStepReady().ready
+          ? <Link className='nav-btn nav-next bold' to={`/step${newStep(1)}`} onClick={() => changeStep(1)}>NEXT STEP</Link>
+          : <button className='nav-btn nav-next bold' onClick={() => alert(nextStepReady().message)}>NEXT STEP</button>
+        }
         <Link className='nav-btn nav-back bold' to={`/step${newStep(-1)}`} onClick={() => changeStep(-1)}>BACK </Link>
       </div>
 
