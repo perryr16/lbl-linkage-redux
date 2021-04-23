@@ -31,13 +31,35 @@ export const Step1Card: React.FC<Props> = () => {
       dispatch<any>(setInput5(e.target.value))
    }
 
+   const ready = () => {
+      const condition = []
+      condition.push(step1.energyCode != '')
+      condition.push(step1.location != '')
+      condition.push(step1.input3 != '')
+      condition.push(step1.input4 != '')
+      condition.push(step1.input5 != '')
+      return condition.every(el => el == true)
+   }
+
+   const inputStyle = (input:any) => {
+      return input == '' 
+         ? {background: 'rgba(226, 34, 34, 0.301)', transition: 'background 1s'}
+         : {background: 'none', transition: 'background 1s'}
+   }
+
    return (
       <div className='step-card' data-testid="step1-card">
+         <p>{ready() ? 'ready' : 'not ready'}</p>
          <form data-testid='form'>
             <div className="">
                <div className='margin-15'>
                   <label htmlFor="energyCode" className='txt-15 left-10-vw'>Energy Code</label>
-                  <select className="form-control" id="energyCode" onChange={handleEnergyCode} defaultValue={'DEFAULT'}>
+                  <select 
+                     className="form-control" 
+                     id="energyCode" 
+                     onChange={handleEnergyCode} 
+                     defaultValue={'DEFAULT'}
+                     style={inputStyle(step1.energyCode)}>
                      <option key="1.1" value="DEFAULT" disabled>{step1.energyCode || 'Ashrea Guideline'}</option>
                      <option key="1.2">Ashrae Guideline 36</option>
                      <option key="1.3">Ashrae Guideline 44</option>
@@ -47,7 +69,13 @@ export const Step1Card: React.FC<Props> = () => {
                </div>
                <div className='margin-15'>
                   <label htmlFor="state" className='txt-15 left-10-vw'>What State is Your Facility In?</label>
-                  <select className="form-control" id="state" onChange={handleLocation} defaultValue={'DEFAULT'}>
+                  <select 
+                     className="form-control" 
+                     id="state" 
+                     onChange={handleLocation} 
+                     defaultValue={'DEFAULT'}
+                     style={inputStyle(step1.location)}
+                     >
                      <option value="DEFAULT" disabled>{step1.location || 'State'}</option>
                      {states.map((state, index) => (
                         <option key={`2.${index}`}>{state}</option>
@@ -60,7 +88,8 @@ export const Step1Card: React.FC<Props> = () => {
                      className="form-control" 
                      id="input3" 
                      onChange={handleInput3} 
-                     defaultValue={step1.input3}
+                     defaultValue={step1.input3 || 'Choose an Option'}
+                     style={inputStyle(step1.input3)}
                      >
                      <option disabled>Choose an Option</option>
                      <option key="3.1">Option 1</option>
@@ -75,8 +104,10 @@ export const Step1Card: React.FC<Props> = () => {
                      className="form-control" 
                      id="input4" 
                      onChange={handleInput4} 
-                     defaultValue={step1.input4} 
-                     data-testid='input4'>
+                     defaultValue={step1.input4 || 'Choose an Option'} 
+                     data-testid='input4'
+                     style={inputStyle(step1.input4)}
+                     >
                      <option disabled>Choose an Option</option>
                      <option key="4.1">Option 1</option>
                      <option key="4.2">Option 2</option>
@@ -86,7 +117,14 @@ export const Step1Card: React.FC<Props> = () => {
                </div>
                <div className='margin-15'>
                   <label htmlFor="input5TextArea" className='txt-15 left-10-vw'>Input 5</label>
-                  <textarea className="form-control" id="input5TextArea" placeholder='Option' defaultValue={step1.input5}onChange={handleInput5}></textarea>
+                  <textarea 
+                     className="form-control" 
+                     id="input5TextArea" 
+                     placeholder='Option' 
+                     defaultValue={step1.input5}
+                     onChange={handleInput5}
+                     style={inputStyle(step1.input5)}
+                     ></textarea>
                </div>
             </div>
          </form>

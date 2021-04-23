@@ -10,17 +10,6 @@ export const NavBar: React.FC = () => {
   const dispatch = useDispatch()
   const currentStep = useSelector(selectStep)
 
-  // const incrementStep = () => {
-  //   dispatch<any>(increment())
-  // }
-  // const decrementStep = () => {
-  //   dispatch<any>(decrement())
-  // }
-
-  useEffect(() => {
-
-  }, [currentStep])
-
   const changeStep = (change:number):any => {
     let newStep = stepFix(currentStep.step + change)
     dispatch(setStep(newStep))
@@ -28,6 +17,10 @@ export const NavBar: React.FC = () => {
 
   const newStep = (change:number) => {
     return stepFix(currentStep.step + change)
+  }
+
+  const nextStep = () => {
+    changeStep(1)
   }
 
   
@@ -39,7 +32,7 @@ export const NavBar: React.FC = () => {
         <p className='download-progress'> Download My Progress</p>
       </div>
       <div className='nav-btns'>
-        <Link className='nav-btn nav-next bold' to={`/step${newStep(1)}`} onClick={() => changeStep(1)}>NEXT STEP</Link>
+        <Link className='nav-btn nav-next bold' to={`/step${newStep(1)}`} onClick={nextStep}>NEXT STEP</Link>
         <Link className='nav-btn nav-back bold' to={`/step${newStep(-1)}`} onClick={() => changeStep(-1)}>BACK </Link>
       </div>
 
