@@ -39,7 +39,7 @@ export const Step2Card: React.FC<Props> = () => {
    };
 
    const checked = (system:any) => {
-      const foundSystem = step2.filter((sys:any) => sys.systemType == system.type)
+      const foundSystem = step2.filter((sys:any) => sys.systemType === system.type)
       return foundSystem.length >= 1
    }
 

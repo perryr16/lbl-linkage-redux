@@ -1,7 +1,7 @@
 import React  from 'react';
 import {states} from '../../constants/states'
 import {useDispatch, useSelector} from 'react-redux'
-import {setEnergyCode, setLocation, setInput3, setInput4, setInput5, resetStep1} from './step1-slice'
+import {setEnergyCode, setLocation, setInput3, setInput4, setInput5} from './step1-slice'
 import {selectStep1} from './step1-slice'
  
 
@@ -32,12 +32,12 @@ export const Step1Card: React.FC<Props> = () => {
    }
 
    const ready = () => {
-      return Object.keys(step1).every(key => step1[key] != '')
+      return Object.keys(step1).every(key => step1[key] !== '')
    }
 
 
    const inputStyle = (step1Input:any) => {
-      return step1Input == '' 
+      return step1Input === '' 
       ? {background: 'rgba(241, 127, 20, 0.479)', transition: 'background 1s'}
       : {background: 'none', transition: 'background 1s'}
    }

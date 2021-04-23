@@ -22,13 +22,11 @@ export const SystemCard: React.FC<Props> = (props) => {
 
    useEffect(() => {
       checked  
-      // checked
       ? setStyle({...style, 
          div:{...style.div, background: selectColor}, 
          moreInfo:{...style.moreInfo, color: 'white'},
          icon: {...style.icon, color: 'white'}
       })
-      // unchecked
       : setStyle({...style, 
          div:{...style.div, background: 'none'}, 
          moreInfo:{...style.moreInfo, color: selectColor},
@@ -37,15 +35,10 @@ export const SystemCard: React.FC<Props> = (props) => {
    },[checked])
 
 
-   
-   // const handleClick = () => {
-   //    handleChange(system.type)
-   // }
-
     return (
       <Col>
          <div className="sys-card" style={style.div} onClick={() => handleChange(system.type)}>
-            <input className="sys-check zoom-3x" type="checkbox" value={system.type} id={system.type} checked={checked}/>
+            <input className="sys-check zoom-3x" type="checkbox" value={system.type} id={system.type} checked={checked} readOnly={true}/>
             <label className="txt-15 bold sys-name" htmlFor={system.type} style={style.icon}>
                {system.type.toUpperCase()}
             </label>

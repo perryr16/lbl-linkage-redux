@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {useSelector} from 'react-redux';
 import {selectStep3} from '../../features/steps/step3-slice';
 import {Col, Row} from 'react-bootstrap';
@@ -15,7 +15,7 @@ export const SystemDetailInputs: React.FC<Props> = (props) => {
 
   const step3 = useSelector(selectStep3)
 
-  const systemDetails = step3[systemType].find((system:any) => system.id == systemId)
+  const systemDetails = step3[systemType].find((system:any) => system.id === systemId)
 
   return (
     <div className='margin-15'>

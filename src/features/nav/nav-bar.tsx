@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom'
 import {selectStep, setStep} from '../steps/step-slice'
@@ -25,14 +25,27 @@ export const NavBar: React.FC = () => {
 
   const step1Ready = () => {
     return {
-      ready: Object.keys(step1).every(key => step1[key] != ''),
+      ready: Object.keys(step1).every(key => step1[key] !== ''),
       message: 'Enter all required fields' 
     }
   }
   const step2Ready = () => {
     return {
-      ready: step2.length != 0, 
+      ready: step2.length !== 0, 
       message: 'Select at least one system'
+    }
+  }
+  const step3Ready = () => {
+    console.log('step3', step3)
+    if (Object.keys(step3).every(key => step3[key].length === 0)) {
+    return {
+      ready: false,
+      message: 'Please add inputs for selected systems'
+      }
+    } else if (false) {
+      return 'false'
+    } else {
+      return {ready: true, message: 'n/a'}
     }
   }
 
@@ -40,9 +53,11 @@ export const NavBar: React.FC = () => {
     switch(currentStep.step) {
       case 1: return step1Ready();
       case 2: return step2Ready();
-      default: return true
+      case 3: return step3Ready();
+      default: return {ready: true, message: 'n/a'}
     }
   }
+
 
   
   return (
